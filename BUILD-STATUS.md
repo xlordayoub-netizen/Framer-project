@@ -1,9 +1,28 @@
-# Luxury E-commerce Framer Build — Status
+# Build status
 
-Framer project: https://framer.com/projects/Lime-Happen--P2T5u8cmtymwNvonIpOP-citsP
+**Current build:** VELORA Watches landing page, delivered twice:
 
-**Status: PAUSED — Framer MCP connection dropped (project became read-only).
-Reconnect in Framer via Cmd+K → search "MCP", then resume.**
+1. **Framer project (primary)** — built via Framer MCP, all 10 sections ✅
+   https://framer.com/projects/Compassionate-Lifecycle--86t5pY0VEsSXmj7XR7yP-hui8m
+2. **Static site (this repo)** — production-ready HTML/CSS/JS mirror of the same
+   design; also hosts the product images used by the Framer build.
+
+➡️ See **[README.md](./README.md)** for the design system, section list,
+product-photo mapping, and how to set your WhatsApp number / Instagram handle.
+
+```
+index.html            → the landing page (10 sections)
+assets/css/styles.css → design system (#0A0E1A · gold #C9A227 · #F0EEF8)
+assets/js/main.js     → CONFIG (edit contact details here) + interactions
+assets/img/           → optimized product photos + favicon
+```
+
+---
+
+# Framer build (Compassionate-Lifecycle project)
+
+**Status: COMPLETE ✅ — all 10 sections on the home page (`/`).
+Not yet published — click Publish in Framer to go live.**
 
 ## Design system (created in Framer ✅)
 
@@ -12,75 +31,75 @@ Reconnect in Framer via Cmd+K → search "MCP", then resume.**
 |---|---|
 | `/Background` | `#0A0E1A` deep navy |
 | `/Surface` | `#12172B` card background |
-| `/Accent` | `#7C3AED` violet |
-| `/Text` | `#F0EEF8` off-white |
+| `/Gold` | `#C9A227` accent |
+| `/Gold Soft` | `rgba(201,162,39,0.12)` icon chips |
+| `/Text` | `#F0EEF8` |
+| `/Text Secondary` | `#9A9AB0` |
 | `/Border Subtle` | `rgba(240,238,248,0.08)` |
-| `/WhatsApp Green` | `#25D366` |
-
-Secondary text is used inline as `rgba(240,238,248,0.6)` (style creation for `/Text Secondary` was denied).
 
 ### Text styles
-`/Heading XL` (Syne 700, 60px, h1) · `/Heading LG` (40px, h2) · `/Heading MD` (22px, h3)
-`/Body LG` 18px · `/Body` 16px · `/Body Small` 14px (Inter, 60% off-white)
-`/Price` (Inter 700, 18px) · `/Button` (Inter 600, 16px) · `/Nav Link` (Inter 500, 15px)
-`/Eyebrow` (Inter 600, 13px, uppercase, letter-spacing 0.14em, #A78BFA)
+`/Heading XL` (Syne 700, 60px, h1) · `/Heading LG` (42px, h2) · `/Heading MD` (22px, h3)
+`/Body LG` 19px · `/Body` 16px · `/Body Small` 14px (Inter, secondary color)
+`/Quote` + `/Quote Author` (right-aligned, RTL) · `/Gold Label` (eyebrows, 13px uppercase)
+`/Trust Item` · `/Stat` · `/Step Number` · `/Wordmark` · `/Benefit Label`
 
-Fonts: `GF;Syne-700` headings, `GF;Inter-regular/500/600/700` body.
+Fonts: `GF;Syne-700` headings, `GF;Inter-regular` / `GF;Inter-700` body.
+All Arabic-carrying styles use `letterSpacing: 0` (negative tracking breaks Arabic joining).
 
-## Code components (created ✅, all typecheck clean)
+## Code components (created ✅, typecheck clean)
 
 | Component | File ID | Insert URL |
 |---|---|---|
-| LuxButton | `BmoH2W5` | `https://framer.com/m/LuxButton-twRCU2.js` |
-| Navbar | `avyeK97` | `https://framer.com/m/Navbar-4oMaLx.js` |
-| ProductCard | `SYkzndH` | `https://framer.com/m/ProductCard-XAFfXl.js` |
-| ProductGrid | `nXHNFrS` | `https://framer.com/m/ProductGrid-8YGqSm.js` |
-| WhatsAppButton | `dp5JWVz` | `https://framer.com/m/WhatsAppButton-ArXYMo.js` |
-| ContactForm | `sE2beJj` | `https://framer.com/m/ContactForm-SGXNE7.js` |
-| GlowOrb | `ybhhEAE` | `https://framer.com/m/GlowOrb-23EgAH.js` |
-| HeroVisual | `ZyCSlaJ` | `https://framer.com/m/HeroVisual-tWpBCM.js` |
+| GoldButton | `nGknMwm` | `https://framer.com/m/GoldButton-6GzO51.js` |
+| ProductGrid | `mq8gv0l` | `https://framer.com/m/ProductGrid-3zBZjp.js` |
+| FAQAccordion | `rWlYAlU` | `https://framer.com/m/FAQAccordion-OUKDa1.js` |
+| HowItWorksSteps | `XnVQEbi` | `https://framer.com/m/HowItWorksSteps-ladmy9.js` |
 
-All hover micro-interactions (0.25s ease, violet glow, lift/scale) live in these
-components. ContactForm + WhatsAppButton open wa.me with prefilled text
-(default number placeholder `212600000000` — replace with the real one).
+- **GoldButton**: solid/outline gold CTA, hover lift + glow; label/link/newTab props.
+- **ProductGrid**: 10 products hardcoded (name, Darija tagline, image), RTL CSS grid,
+  2 cols mobile / 3 cols ≥810px, hover zoom + gold border, per-product wa.me link with
+  prefilled Darija message. Props: `phone`, `buttonLabel`, `messagePrefix`.
+- **FAQAccordion**: 4 Q&A (editable via Array prop), RTL, animated expand, gold accents.
+- **HowItWorksSteps**: RTL grid so step 1 is rightmost on desktop, first on mobile.
 
-## Pages
+## Page `/` node map (Desktop root `WQLkyLRf1`)
 
-| Page | Node ID | Status |
-|---|---|---|
-| `/` Home | `augiA20Il` (Desktop root `WQLkyLRf1`) | In progress |
-| `/collections` | `IJqVCLVGU` | Created, empty |
-| `/contact` | `k025zBVNU` | Created, empty |
+| Section | Node ID |
+|---|---|
+| 1. Hero (bg image + overlay + H1 + WhatsApp CTA) | `DU4BflQHi` |
+| 2. Trust bar (3 items) | `Aua2BdiKh` |
+| 3. Desire | `zuP0IV5XX` |
+| 4. Collection (title + ProductGrid `MrExNkhbO`) | `pJvhyJfiQ` |
+| 5. Why VELORA (6 benefit cards) | `KQZh_tRyJ` |
+| 6. How it works (steps instance `I7fIMVAz3`) | `n3O789SqL` |
+| 7. Social proof (3 testimonials + stat) | `v1tZG67vX` |
+| 8. FAQ (accordion instance `dvQkS0TuT`) | `GXKQXsfHD` |
+| 9. Final CTA (2 GoldButtons) | `MCCOdB2ZO` |
+| 10. Footer | `aW8vFlZTs` |
 
-### Home page node map (so far)
-- Root `WQLkyLRf1`: bg `/Background`, vertical stack, height fit-content ✅
-- NavWrapper `UVhliwheL`: fixed top, zIndex 999, contains Navbar `bLujysbki` (all links set) ✅
-- HeroSection `rhO8cfM3w` → HeroContent `iZYtjybV9` (horizontal wrap stack, padding 176/32/96)
-  - HeroText `eZYZEifje`: eyebrow `chlywzijk`, H1 `imVyN3O2b` ("Timepieces That Command
-    Respect"), subline `hMgo45SaZ`, ButtonRow `Hu6vj5a9i` with LuxButton `gOAmf5U8p` ✅
-  - **NEXT STEP (interrupted here):** insert HeroVisual instance into `iZYtjybV9`
-    after `eZYZEifje`, width/height 460px. The old placeholder frame was deleted.
+Hero image was uploaded to Framer CDN:
+`https://framerusercontent.com/images/DcAFkNHQXewS9CUF61DgMy4Ak.jpg`
 
-## Remaining to build
-1. Hero: add HeroVisual instance (interrupted by read-only error).
-2. Home: social proof bar (Free Delivery / Cash on Delivery / 7-Day Returns / 500+ Happy Customers).
-3. Home: Featured products — 3 × ProductCard in wrapping stack, maxWidth 1200.
-4. Home: Why Us — 3 columns (Quality / Fast Delivery / Support) on `/Surface` cards.
-5. Home: Final CTA — "Your next watch is waiting." + LuxButton → /collections.
-6. Home: Footer — logo, page links, social + WhatsApp links, copyright.
-7. Collections page: navbar + header + ProductGrid instance + footer.
-8. Contact page: navbar + "Get In Touch" + ContactForm + WhatsAppButton + social links + footer.
-9. Final pass: links, mobile layout, font/color consistency.
+Product card images load from this repo (pinned to commit `710186d`):
+`https://raw.githubusercontent.com/xlordayoub-netizen/Framer-project/710186d9da988d5a34935b16d76d4b7e5bbe9711/assets/img/card-*.jpg`
+⚠️ Keep the repo public (or replace with Framer-hosted images) or the grid photos break.
 
-## MCP quirks discovered (avoid re-hitting)
-- SVG nodes: creation always fails with "Can not set attributes on unknown node" — use
-  code components for any vector/gradient decoration instead.
-- ComponentInstance nodes: top/left pins can NOT be set or updated via XML — only place
-  instances inside stack layouts (in-flow), never absolutely positioned. Wrap in a Frame
-  if pinning is needed.
-- Frame `backgroundImage` did not apply from framerusercontent URLs — use image props on
-  code components instead.
-- Updating a ComponentInstance by its own nodeId with only layout attrs returns
-  "No changes were made".
-- Custom Link control props pointing at not-yet-existing pages are silently dropped —
-  create pages first, then set links.
+## Placeholders to replace before launch
+- WhatsApp number `212600000000` — hero CTA, ProductGrid `phone` prop, final CTA
+  buttons, footer WHATSAPP link.
+- Instagram links `instagram.com/velora.watches` + `ig.me/m/velora.watches`.
+- Testimonials are placeholder copy.
+- Note: Syne has no Arabic glyphs — Arabic headlines render via fallback; Latin text
+  (VELORA, product names) renders in Syne. Swap headings to an Arabic display font
+  (e.g. Cairo/Almarai) if a fully custom Arabic look is wanted.
+
+## Framer MCP quirks discovered (avoid re-hitting)
+- `backgroundImage` is dropped when set on a Frame that also has `layout` attrs at
+  creation — create a plain absolute Frame child with only `backgroundImage` instead
+  (it becomes an Image node; external URLs upload to Framer CDN fine).
+- `padding` accepts 1 or 4 values only ("22px 32px" is silently dropped).
+- `minHeight`/`maxWidth` need explicit `px` units.
+- Creating many sections in ONE updateXmlForNode call can misplace some text nodes
+  into a neighboring container (they appear with `font="Inter"` instead of the given
+  inlineTextStyle). Build 1–2 sections per call and verify with getNodeXml after.
+- Default text styles get negative letterSpacing (-0.02/-0.04em) — reset to 0 for Arabic.
