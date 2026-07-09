@@ -39,11 +39,32 @@ WhatsAppButton gained `variant` prop (gold | ink) for the gold CTA band.
   were made" (both quoting styles). Retry differently in STEP 7.
 - "Updated attributes" in responses is not proof — verify with getNodeXml.
 
-### Remaining for STEP 4 sign-off
-- Tablet/Phone breakpoints (user adds in UI → I restyle: /H1 Tablet/Mobile,
-  /H2 Tablet/Mobile swaps, grids 3→2→1, section padding 96px mobile).
-- Appear effects (manual UI pass, list at STEP 8): hero headline stagger +
-  all below-fold sections fade+rise 24px once.
+### Responsive pass (after breakpoints added)
+- Breakpoints exist: Tablet `OZX7EeCQg` (810px), Phone `xtFgrH1TT` (390px).
+- ✅ MCP-side done: all 5 grids converted to `gridColumns="auto-fill"` +
+  minmax min widths → column counts collapse naturally:
+  trust min 280 (4→2→1) · fleet min 320 (3→2→1) · steps min 300 (3→2→1) ·
+  why min 280 (4→2→1) · testimonials min 300 (3→2→1).
+- ⚠️ NEW LANDMINE: breakpoint replicas are UNREACHABLE via MCP. getNodeXml
+  on a breakpoint root returns no children; getSelectedNodesXml collapses
+  any replica-child selection to the breakpoint root. Per-node overrides on
+  Tablet/Phone are impossible programmatically.
+- → MANUAL UI CHECKLIST (user, ~2 min) — the Framer-native way, breakpoint
+  sizes ON THE TEXT STYLES (Styles panel → style → + breakpoint size):
+  | Style | Desktop | @810 | @390 |
+  |---|---|---|---|
+  | /H1 | 76px | 56px | 38px |
+  | /H2 | 48px | 36px | 28px |
+  | /H2 Ink | 48px | 36px | 28px |
+  | /Quote (optional) | 28px | 28px | 24px |
+  (Then /H1 Tablet, /H1 Mobile, /H2 Tablet, /H2 Mobile, /H2 Ink Tablet,
+  /H2 Ink Mobile styles become redundant fallbacks — keep or delete.)
+  Plus Phone-tree section paddings (select each section ON the Phone frame,
+  set vertical padding): Fleet 160→96 · Steps bottom 160→96 · Why bottom
+  160→96 · Testimonials 160→96 · CTA band 96→64.
+- STEP 8 mobile-pass reminders: trust-bar stat left-hairlines look odd
+  stacked 1-col on phone (consider removing on Phone tree); Appear effects
+  (hero headline stagger + below-fold fade+rise 24px) still manual.
 
 ## STEP 3 — CarCard + Accordion + Tokens refactor ✅ (pending 1 verification)
 
