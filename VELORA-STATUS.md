@@ -3,7 +3,59 @@
 Framer project: https://framer.com/projects/Rotating-Shape--GEGWH3kdF063y7XJY7TJ-4yscR
 Brief: `velora-drive-claude-code-package.md` (uploaded zip). Execution is step-gated by the user.
 
-**Current position: STEP 2 DONE. Waiting for "STEP 3".**
+**Current position: STEP 3 built; Framer MCP DISCONNECTED mid-verification.
+Reconnect (Framer → Cmd+K → "MCP"), then verify Accordion.tsx (`phRy3ZC`)
+exports via getComponentInsertUrlAndTypes before resuming.**
+
+## STEP 3 — CarCard + Accordion + Tokens refactor ✅ (pending 1 verification)
+
+### Scope line (user-mandated, confirmed)
+Code components ONLY for: Nav, Footer, ButtonPrimary, ButtonGhost,
+WhatsAppButton, CarCard, /conditions Accordion. ALL page sections (HERO,
+TRUST BAR, FLEET, COMMENT ÇA MARCHE, POURQUOI VELORA, DIVIDER, TÉMOIGNAGES,
+CTA BAND) = native canvas frames with /H1 /H2 /Body /Eyebrow styles.
+StatItem/StepItem/FeatureCard/TestimonialCard/CTABand/SectionHeading are
+native frame patterns built in place (STEPs 4–6), NOT code. Scroll-reveal =
+native Appear effect, applied manually in UI (MCP can't set effects — list
+frames at STEP 8).
+
+### Tokens refactor (user-mandated after STEP 2 critique)
+- `Tokens.tsx` (`QhCN4wo`) = single source of truth. Exports TokenSheet
+  component (visual swatch sheet) with `.tokens` static property.
+- ⚠️ CRITICAL MCP LESSON: relative imports (`./Tokens`) DO NOT resolve —
+  they silently break every importing component (exports vanish). Use
+  framer.com module URLs: `import TokenSheet from
+  "https://framer.com/m/Tokens-AVd7Km.js"` then
+  `const tokens = (TokenSheet as any).tokens`.
+- ⚠️ typecheck results in create/updateCodeFile responses LAG ONE UPDATE
+  BEHIND. Ground truth = getComponentInsertUrlAndTypes (or CodeComponents
+  list in getProjectXml).
+- Nav CTA now renders `<ButtonPrimary />` (imported by URL). CarCard CTA
+  renders `<WhatsAppButton />`.
+
+### Code files (all verified exporting except Accordion)
+| File | ID | Insert URL | Verified |
+|---|---|---|---|
+| Tokens.tsx | `QhCN4wo` | `https://framer.com/m/Tokens-AVd7Km.js` | ✅ |
+| ButtonPrimary.tsx | `MYv7zxa` | `https://framer.com/m/ButtonPrimary-9U9So2.js` | ✅ |
+| ButtonGhost.tsx | `NP8AS5u` | `https://framer.com/m/ButtonGhost-B4QQ1a.js` | ✅ |
+| WhatsAppButton.tsx | `NGrsn4Y` | `https://framer.com/m/WhatsAppButton-XibTFm.js` | ✅ |
+| Nav.tsx | `CZ_P2ec` | `https://framer.com/m/Nav-EghYkc.js` | ✅ |
+| Footer.tsx | `XDwlUKT` | `https://framer.com/m/Footer-d298Cl.js` | ✅ |
+| CarCard.tsx | `AE6nDaK` | `https://framer.com/m/CarCard-1nev8s.js` | ✅ |
+| Accordion.tsx | `phRy3ZC` | `https://framer.com/m/Accordion-IPDRhK.js` | ⏳ verify after reconnect |
+
+### CarCard notes
+Props: image (empty → labelled placeholder "Photo — <model>"), model,
+category (Citadine/Compacte/SUV), seats, transmission, fuel, pricePerDay,
+ctaLabel, phone, message. Hover: lift 6px + gold border + image scale 1.04,
+240ms, reduced-motion safe. Model 20px > price 18px (hierarchy rule).
+
+### Accordion notes
+Props: number, title, body (textarea, \n = paragraphs), anchor (TOC #id),
+startOpen. Mobile ≤809px: collapsible button w/ chevron + aria-expanded.
+Desktop: open block, h3 header, not interactive. Placeholder copy only, no
+invented figures (real copy = STEP 5B).
 
 ## STEP 2 — Core components ✅ (all typecheck clean)
 
