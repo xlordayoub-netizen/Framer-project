@@ -9,6 +9,34 @@ must be added in the Framer UI before I can apply /H1 Mobile etc.;
 (2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
 made" quirk on ComponentInstance link controls).**
 
+## STEP 5 — /conditions ✅ (structure + placeholders)
+
+Page `/conditions` = `vozflC1q8`, Desktop root `Gm2KNuJm0` (/ink, v-stack).
+NavWrapper `Hde0_5ik3` (Nav `L2VsiCoUn`, transparentAtTop=false → always ink)
+→ Header `PYyjmhgkq` (eyebrow + H1 `/Page Title` "Tout est écrit. Rien n'est
+caché.") → Body `BM9r2hHHI` > two-col `ro4AGgxdR` (h-stack, wrap):
+sticky TOC `cN9NAoI8J` (280px, top 96, "Sommaire" + 10 `#anchor` links) +
+blocks col `w57_g5qzI` (1fr, min 320): 10 Accordion instances
+`qwTiU0SnI rTLdG9I6L pDVM6xBew tRXE7v3Zc N4rcqaXGQ aTGXChH4z Y1T30SA4q
+urPYbdcqa CoNHRqZnd vcVkWG_zt`, anchors qui-peut-louer/documents-requis/
+caution/carburant/kilometrage/assurance/livraison-recuperation/annulation/
+retard-prolongation/interdictions → CTA band `kJSjXjQMe` (/gold, "Une
+question sur les conditions ?", WhatsAppButton ink, message "Bonjour, j'ai
+une question sur les conditions de location") → Footer `tNptngzRs`.
+
+New text style: `/Page Title` (Syne 800 48px, tag **h1** at H2 scale — add
+breakpoint sizes 36/28 in the style-panel pass).
+
+⚠️ Landmines added: String prop value "10" refuses to store on instance
+creation (kept default "01", twice) — Interdictions accordion number needs
+5-sec manual fix in props panel. Creation diffs sometimes show phantom
+absolute top/left on new instances — transient, verify with getNodeXml
+before "fixing". Placeholder copy everywhere; REAL copy arrives as STEP 5B
+(PARTIE 4) — DO NOT invent figures.
+
+MANUAL (user): set Interdictions accordion Number → "10"; add /Page Title
+breakpoint sizes (36 @810, 28 @390).
+
 ## STEP 4 — Accueil desktop sections ✅ (node map)
 
 Page `/` = `augiA20Il`, Desktop root = `WQLkyLRf1` (/ink, vertical stack).
