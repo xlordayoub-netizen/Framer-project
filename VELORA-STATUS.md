@@ -3,9 +3,47 @@
 Framer project: https://framer.com/projects/Rotating-Shape--GEGWH3kdF063y7XJY7TJ-4yscR
 Brief: `velora-drive-claude-code-package.md` (uploaded zip). Execution is step-gated by the user.
 
-**Current position: STEP 3 built; Framer MCP DISCONNECTED mid-verification.
-Reconnect (Framer → Cmd+K → "MCP"), then verify Accordion.tsx (`phRy3ZC`)
-exports via getComponentInsertUrlAndTypes before resuming.**
+**Current position: STEP 4 DESKTOP DONE — all 8 sections native on Accueil.
+Blockers: (1) page has ONLY a Desktop breakpoint — Tablet/Phone breakpoints
+must be added in the Framer UI before I can apply /H1 Mobile etc.;
+(2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
+made" quirk on ComponentInstance link controls).**
+
+## STEP 4 — Accueil desktop sections ✅ (node map)
+
+Page `/` = `augiA20Il`, Desktop root = `WQLkyLRf1` (/ink, vertical stack).
+Order: NavWrapper `P0yVi6koi` (fixed, z999, Nav `UTccvk6m8`) → Hero
+`wzsL_P2he` (100vh; placeholder `x8EdZsq5e`+label, gradient img `je76415wV`,
+content `Cpi3QkLzO`: eyebrow/H1/sub/buttons `AUwkFsFLs` [WA `EXVBqoz5Q`,
+ghost `aCLO66q5A`]) → TrustBar `sObQWy_YP` (grid `CAc_IDBmU`, 4 stats,
+hairline separators) → Fleet `LtN_ogqEl` (heading `EkakLDMBQ`, pills
+`KMBiUhb11`, grid `tbJe7ADOc` w/ 8 CarCards) → Steps `xkMCBG7Tf` → Why
+`VxRgEbz4s` (4 feature cards, gold-dim chip + gold dot placeholder icons) →
+Divider `PbZiJ09Bo` (placeholder `kv24Qagwf`, overlay, /Quote) →
+Testimonials `zQ6jc1Lbn` (3 cards, initials in gold-dim circles) → CTA band
+`PFtLjI7rO` (/gold, /H2 Ink, WhatsAppButton variant="ink") → Footer wrapper
+`S061JC59a` (Footer `XOJawqpdb`).
+
+WhatsAppButton gained `variant` prop (gold | ink) for the gold CTA band.
+
+### MCP landmines learned in STEP 4 (do not re-hit)
+- SVG nodes still fail ("Can not set attributes on unknown node") — hero
+  gradient is an SVG **data-URI backgroundImage** instead (works, re-hosted).
+- New frames default to WHITE background — always set backgroundColor.
+- **padding accepts 1 or 4 values ONLY** — 2-value shorthand ("160px 32px")
+  is SILENTLY DROPPED, on create and update. Always write 4 values.
+- Sparse updates REORDER/REPARENT: any node listed becomes a child of the
+  XML parent it's listed under, at that position. Always reflect the true
+  hierarchy + full sibling order for touched levels.
+- ComponentInstance link controls: JSON scrollSection value → "No changes
+  were made" (both quoting styles). Retry differently in STEP 7.
+- "Updated attributes" in responses is not proof — verify with getNodeXml.
+
+### Remaining for STEP 4 sign-off
+- Tablet/Phone breakpoints (user adds in UI → I restyle: /H1 Tablet/Mobile,
+  /H2 Tablet/Mobile swaps, grids 3→2→1, section padding 96px mobile).
+- Appear effects (manual UI pass, list at STEP 8): hero headline stagger +
+  all below-fold sections fade+rise 24px once.
 
 ## STEP 3 — CarCard + Accordion + Tokens refactor ✅ (pending 1 verification)
 
