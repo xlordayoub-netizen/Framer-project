@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiche véhicule — ORION Automobiles</title>
+  <meta name="description" content="Fiche détaillée du véhicule : galerie, caractéristiques, expertise et réservation d'un essai sur route. Projet de démonstration.">
+  <meta property="og:title" content="Fiche véhicule — ORION Automobiles">
+  <meta property="og:description" content="Galerie, caractéristiques, expertise et réservation d'un essai sur route.">
+  <meta property="og:image" content="https://placehold.co/1600x900/0B0B0D/C6A15B?text=ORION">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="index.html">ORION</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="collections.html" aria-current="page">Collections</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+212522000000">+212 5 22 00 00 00</a>
+        <a class="btn btn--ghost" href="tel:+212522000000">Nous appeler</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close" type="button">Fermer</button>
+    <nav aria-label="Navigation mobile">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="collections.html" aria-current="page">Collections</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:+212522000000">Nous appeler</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="page-offset">
+
+    <div class="container car-detail" id="car-detail">
+
+      <!-- Galerie -->
+      <section aria-label="Galerie photos">
+        <div class="gallery__main"></div>
+        <div class="gallery__thumbs" id="gallery-thumbs"></div>
+      </section>
+
+      <!-- Panneau d'informations -->
+      <section class="car-panel" aria-label="Informations du véhicule">
+        <span class="overline" id="car-brand"></span>
+        <h1 id="car-name"></h1>
+        <p class="car-panel__price" id="car-price"></p>
+        <p class="car-panel__price-note">Reprise possible</p>
+
+        <table class="spec-table">
+          <caption class="visually-hidden">Caractéristiques du véhicule</caption>
+          <tbody id="spec-body"></tbody>
+        </table>
+
+        <p class="car-panel__desc" id="car-desc"></p>
+
+        <div class="car-panel__actions">
+          <button class="btn btn--solid" type="button" id="reserve-open">Réserver un essai</button>
+          <a class="btn btn--ghost" href="tel:+212522000000">Appeler maintenant</a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Véhicules similaires -->
+    <section class="similar" aria-labelledby="similar-title">
+      <div class="container">
+        <h2 id="similar-title">Véhicules similaires</h2>
+        <div class="cars-grid" id="similar-grid"></div>
+      </div>
+    </section>
+
+    <!-- Dialog de réservation -->
+    <dialog id="reserve-dialog" aria-labelledby="reserve-title">
+      <div class="dialog-head">
+        <div>
+          <h2 id="reserve-title">Réserver un essai</h2>
+          <p id="reserve-car"></p>
+        </div>
+        <button class="dialog-close" type="button" aria-label="Fermer">✕</button>
+      </div>
+      <div class="dialog-body">
+        <form class="form-grid" novalidate>
+          <div class="form-field">
+            <label for="res-nom">Nom complet <span aria-hidden="true">*</span></label>
+            <input id="res-nom" name="nom" type="text" autocomplete="name" required aria-describedby="res-nom-error">
+            <p class="field-error" id="res-nom-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="res-tel">Téléphone <span aria-hidden="true">*</span></label>
+            <input id="res-tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06XXXXXXXX" required aria-describedby="res-tel-error">
+            <p class="field-error" id="res-tel-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="res-ville">Ville <span aria-hidden="true">*</span></label>
+            <select id="res-ville" name="ville" required aria-describedby="res-ville-error">
+              <option value="">Choisir une ville</option>
+              <option>Casablanca</option>
+              <option>Rabat</option>
+              <option>Marrakech</option>
+              <option>Tanger</option>
+              <option>Fès</option>
+              <option>Agadir</option>
+              <option>Meknès</option>
+              <option>Oujda</option>
+              <option>Kénitra</option>
+              <option>Tétouan</option>
+              <option>El Jadida</option>
+              <option>Mohammedia</option>
+            </select>
+            <p class="field-error" id="res-ville-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="res-date">Date d'essai souhaitée</label>
+            <input id="res-date" name="date" type="date" aria-describedby="res-date-error">
+            <p class="field-error" id="res-date-error"></p>
+          </div>
+          <div class="form-field">
+            <label for="res-message">Message</label>
+            <textarea id="res-message" name="message" rows="3" aria-describedby="res-message-error"></textarea>
+            <p class="field-error" id="res-message-error"></p>
+          </div>
+          <button class="btn btn--solid" type="submit">Envoyer la demande</button>
+        </form>
+      </div>
+    </dialog>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="wordmark">ORION</p>
+          <p>Véhicules d'occasion premium, sélectionnés et expertisés. Showroom à Casablanca, livraison dans tout le Maroc.</p>
+        </div>
+        <div>
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Coordonnées</h2>
+          <ul>
+            <li>12 Boulevard de la Corniche, Casablanca</li>
+            <li><a href="tel:+212522000000">+212 5 22 00 00 00</a></li>
+            <li><a href="mailto:contact@orion-automobiles.ma">contact@orion-automobiles.ma</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Horaires</h2>
+          <table class="footer-hours">
+            <tr><td>Lun – Sam</td><td>9h – 19h</td></tr>
+            <tr><td>Dimanche</td><td>Fermé</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <p>© 2026 ORION Automobiles</p>
+        <p>Projet de démonstration. Marque fictive. Photographies générées par IA.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

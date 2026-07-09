@@ -1,0 +1,1366 @@
+/* ============================================================
+   ORION Automobiles — style.css
+   Tokens déclarés à :root uniquement. Aucune valeur brute ailleurs.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  --bg: #0B0B0D;
+  --surface: #131317;
+  --surface-2: #1C1C22;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #F2F2F3;
+  --muted: #8A8F98;
+  --accent: #C6A15B;
+  --accent-hover: #E3C88A;
+  --sold: #E63946;
+  --backdrop: rgba(11, 11, 13, 0.7);
+
+  --font-heading: "Syne", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius: 2px;
+  --hairline: 1px;
+
+  /* Échelle d'espacement : 4 8 16 24 40 64 96 160 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 40px;
+  --sp-6: 64px;
+  --sp-7: 96px;
+  --sp-8: 160px;
+
+  --dur: 400ms;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --header-h: 72px;
+  --sticky-offset: 120px;
+  --container-max: 1280px;
+  --container-pad: clamp(20px, 5vw, 64px);
+}
+
+/* ---------- 2. Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Les règles display des composants ne doivent jamais écraser [hidden] */
+[hidden] {
+  display: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- 3. Base typographie ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  max-width: 65ch;
+}
+
+.overline {
+  color: var(--muted);
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- 4. Utilitaires ---------- */
+.container {
+  margin-inline: auto;
+  max-width: var(--container-max);
+  padding-inline: var(--container-pad);
+  width: 100%;
+}
+
+.section {
+  padding-block: var(--sp-7);
+}
+
+/* Pages sans hero : le contenu démarre sous le header fixe */
+.page-offset {
+  padding-top: calc(var(--header-h) + var(--sp-5));
+}
+
+.visually-hidden {
+  block-size: 1px;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+:focus-visible {
+  border-radius: var(--radius);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 5. Boutons ---------- */
+.btn {
+  align-items: center;
+  border: var(--hairline) solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  gap: var(--sp-2);
+  justify-content: center;
+  letter-spacing: 0.02em;
+  min-height: 48px;
+  padding: var(--sp-3) var(--sp-4);
+  text-align: center;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    transition: background-color var(--dur) var(--ease),
+      border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn--solid {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn--solid:hover {
+  background: var(--accent-hover);
+}
+
+.btn--solid:active {
+  background: var(--accent);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  background: var(--surface-2);
+  border-color: var(--muted);
+}
+
+.btn--ghost:active {
+  background: var(--surface);
+}
+
+.link-arrow {
+  align-items: center;
+  color: var(--text);
+  display: inline-flex;
+  font-weight: 500;
+  gap: var(--sp-2);
+}
+
+.link-arrow .arrow {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link-arrow .arrow {
+    transition: transform var(--dur) var(--ease);
+  }
+}
+
+.link-arrow:hover .arrow {
+  transform: translateX(6px);
+}
+
+.link-arrow:active {
+  color: var(--muted);
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: var(--sp-2) var(--sp-2);
+  text-decoration: underline;
+  text-underline-offset: var(--sp-1);
+}
+
+.btn-text:hover,
+.btn-text:active {
+  color: var(--text);
+}
+
+/* ---------- 6. Header ---------- */
+.site-header {
+  inset-inline: 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-header {
+    transition: background-color var(--dur) var(--ease),
+      border-color var(--dur) var(--ease);
+  }
+}
+
+.site-header.is-scrolled {
+  background: var(--surface);
+  border-bottom: var(--hairline) solid var(--line);
+}
+
+.site-header__inner {
+  align-items: center;
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: space-between;
+  min-height: var(--header-h);
+}
+
+.wordmark {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding-block: var(--sp-2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav a {
+    transition: color var(--dur) var(--ease);
+  }
+}
+
+.site-nav a:hover,
+.site-nav a:active {
+  color: var(--text);
+}
+
+/* Lien actif en --text (l'or par viewport est réservé au prix et au CTA) */
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.header-phone {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.header-phone:hover {
+  color: var(--text);
+}
+
+.header-actions .btn {
+  min-height: 40px;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+/* Burger */
+.nav-toggle {
+  background: none;
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-3);
+}
+
+.nav-toggle .bar {
+  background: var(--text);
+  display: block;
+  height: 2px;
+  width: 20px;
+}
+
+/* Overlay mobile plein écran */
+.mobile-menu {
+  align-items: center;
+  background: var(--bg);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  visibility: hidden;
+  z-index: 200;
+}
+
+.mobile-menu.is-open {
+  visibility: visible;
+}
+
+.mobile-menu ul {
+  display: grid;
+  gap: var(--sp-4);
+  text-align: center;
+}
+
+.mobile-menu a {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.mobile-menu a[aria-current="page"] {
+  color: var(--muted);
+}
+
+.mobile-menu__close {
+  background: none;
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  padding: var(--sp-2) var(--sp-3);
+  position: absolute;
+  right: var(--container-pad);
+  top: var(--sp-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-menu {
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease), visibility 0s var(--dur);
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    transition: opacity var(--dur) var(--ease);
+  }
+
+  .mobile-menu li {
+    opacity: 0;
+    transform: translateY(var(--sp-3));
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+
+  /* Liens en cascade, 60 ms d'écart */
+  .mobile-menu.is-open li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .mobile-menu.is-open li:nth-child(1) { transition-delay: 60ms; }
+  .mobile-menu.is-open li:nth-child(2) { transition-delay: 120ms; }
+  .mobile-menu.is-open li:nth-child(3) { transition-delay: 180ms; }
+  .mobile-menu.is-open li:nth-child(4) { transition-delay: 240ms; }
+}
+
+/* ---------- 7. Footer ---------- */
+.site-footer {
+  background: var(--surface);
+  border-top: var(--hairline) solid var(--line);
+  margin-top: var(--sp-7);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: var(--sp-6);
+}
+
+.site-footer h2 {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  margin-bottom: var(--sp-3);
+  text-transform: uppercase;
+}
+
+.site-footer p,
+.site-footer a,
+.site-footer li {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.site-footer li {
+  margin-bottom: var(--sp-2);
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
+
+.footer-hours {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.footer-hours td {
+  color: var(--muted);
+  padding-block: var(--sp-1);
+}
+
+.footer-hours td:last-child {
+  text-align: right;
+}
+
+.site-footer__bar {
+  border-top: var(--hairline) solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: space-between;
+  padding-block: var(--sp-4);
+}
+
+.site-footer__bar p {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* ---------- 8. Hero (accueil) ---------- */
+.hero {
+  display: grid;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__media {
+  inset: 0;
+  position: absolute;
+}
+
+.hero__media img {
+  aspect-ratio: 21 / 9;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero__media::after {
+  background: linear-gradient(to top, var(--bg) 0%, transparent 60%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.hero__content {
+  align-self: end;
+  padding-block: var(--sp-7);
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content .overline {
+  margin-bottom: var(--sp-3);
+}
+
+.hero__subtitle {
+  color: var(--muted);
+  font-size: 1.125rem;
+  margin-top: var(--sp-4);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.scroll-cue {
+  bottom: var(--sp-5);
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  position: absolute;
+  right: var(--container-pad);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-cue {
+    transition: opacity var(--dur) var(--ease);
+  }
+}
+
+.scroll-cue.is-hidden {
+  opacity: 0;
+}
+
+/* ---------- 9. Bande de confiance ---------- */
+.trust-bar {
+  border-block: var(--hairline) solid var(--line);
+}
+
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.trust-bar__item {
+  border-left: var(--hairline) solid var(--line);
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.trust-bar__item:first-child {
+  border-left: none;
+}
+
+.trust-bar__item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.trust-bar__item span {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* ---------- 10. Cartes véhicule ---------- */
+.section-head {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: space-between;
+  margin-bottom: var(--sp-5);
+}
+
+.section-head .overline {
+  margin-bottom: var(--sp-2);
+}
+
+.cars-grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .cars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.car-card {
+  background: var(--surface);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .car-card {
+    transition: border-color var(--dur) var(--ease);
+  }
+}
+
+.car-card:hover {
+  border-color: var(--muted);
+}
+
+.car-card__media {
+  overflow: hidden;
+  position: relative;
+}
+
+.car-card__media img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .car-card__media img {
+    transition: transform var(--dur) var(--ease);
+  }
+}
+
+.car-card:hover .car-card__media img {
+  transform: scale(1.04);
+}
+
+.car-card__body {
+  display: grid;
+  gap: var(--sp-1);
+  padding: var(--sp-4);
+}
+
+.car-card__name {
+  font-size: 1.25rem;
+}
+
+.car-card__meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.car-card__price {
+  color: var(--accent);
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  margin-top: var(--sp-2);
+}
+
+.car-card > a {
+  display: block;
+  height: 100%;
+}
+
+.car-card:focus-within {
+  border-color: var(--accent);
+}
+
+/* Statuts */
+.status-tag {
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 500;
+  left: var(--sp-3);
+  letter-spacing: 0.08em;
+  padding: var(--sp-1) var(--sp-2);
+  position: absolute;
+  text-transform: uppercase;
+  top: var(--sp-3);
+  z-index: 1;
+}
+
+.status-tag--vendu {
+  background: var(--sold);
+  color: var(--text);
+}
+
+.status-tag--reserve {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.car-card--vendu {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.car-card--vendu:hover .car-card__media img {
+  transform: none;
+}
+
+.card-more {
+  margin-top: var(--sp-5);
+  text-align: center;
+}
+
+/* ---------- 11. Processus (accueil) ---------- */
+.process__grid {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .process__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.process__step {
+  border-top: var(--hairline) solid var(--line);
+  min-height: var(--sp-8);
+  padding-top: var(--sp-4);
+  position: relative;
+}
+
+.process__num {
+  color: var(--surface-2);
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 700;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  line-height: 1;
+  position: absolute;
+  user-select: none;
+  z-index: 0;
+}
+
+.process__step h3,
+.process__step p {
+  position: relative;
+  z-index: 1;
+}
+
+.process__step p {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin-top: var(--sp-2);
+}
+
+/* ---------- 12. Bande CTA ---------- */
+.cta-band {
+  background: var(--surface-2);
+  padding-block: var(--sp-7);
+  text-align: center;
+}
+
+.cta-band h2 {
+  margin-inline: auto;
+}
+
+.cta-band p {
+  color: var(--muted);
+  margin: var(--sp-3) auto 0;
+}
+
+.cta-band .btn {
+  margin-top: var(--sp-5);
+}
+
+/* ---------- 13. En-tête de page (collections, contact, produit) ---------- */
+.page-head {
+  border-bottom: var(--hairline) solid var(--line);
+  padding-block: calc(var(--header-h) + var(--sp-6)) var(--sp-5);
+}
+
+.page-head h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.page-head p {
+  color: var(--muted);
+  margin-top: var(--sp-2);
+}
+
+/* ---------- 14. Barre de filtres ---------- */
+.filter-bar {
+  background: var(--surface);
+  border-bottom: var(--hairline) solid var(--line);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 50;
+}
+
+.filter-bar__inner {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  padding-block: var(--sp-3);
+}
+
+.filter-field {
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.filter-field label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+select,
+input,
+textarea {
+  background: var(--surface-2);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  min-height: 44px;
+  padding: var(--sp-2) var(--sp-3);
+  width: 100%;
+}
+
+textarea {
+  min-height: var(--sp-7);
+  resize: vertical;
+}
+
+select:hover,
+input:hover,
+textarea:hover {
+  border-color: var(--muted);
+}
+
+select:disabled,
+input:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.filter-bar select {
+  min-width: 160px;
+  width: auto;
+}
+
+.results-note {
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding-block: var(--sp-4) 0;
+}
+
+.empty-state {
+  padding-block: var(--sp-7);
+  text-align: center;
+}
+
+.empty-state p {
+  color: var(--muted);
+  margin-inline: auto;
+}
+
+.empty-state .btn {
+  margin-top: var(--sp-4);
+}
+
+/* ---------- 15. Page produit ---------- */
+.car-detail {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  padding-block: var(--sp-6);
+}
+
+@media (max-width: 899px) {
+  .car-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Galerie */
+.gallery__main {
+  aspect-ratio: 4 / 3;
+  background: var(--surface);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery__main img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery__main img {
+    transition: opacity 300ms var(--ease);
+  }
+}
+
+.gallery__main img.is-hidden {
+  opacity: 0;
+}
+
+.gallery__thumbs {
+  display: grid;
+  gap: var(--sp-2);
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: var(--sp-2);
+}
+
+.gallery__thumbs button {
+  background: var(--surface);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+}
+
+.gallery__thumbs button[aria-current="true"] {
+  border-color: var(--accent);
+}
+
+.gallery__thumbs button:hover {
+  border-color: var(--muted);
+}
+
+.gallery__thumbs img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Panneau d'informations */
+.car-panel {
+  align-self: start;
+  position: sticky;
+  top: var(--sticky-offset);
+}
+
+.car-panel h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-top: var(--sp-1);
+}
+
+.car-panel__price {
+  color: var(--accent);
+  font-size: 1.75rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  margin-top: var(--sp-3);
+}
+
+.car-panel__price-note {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.spec-table {
+  border-collapse: collapse;
+  margin-block: var(--sp-4);
+  width: 100%;
+}
+
+.spec-table th,
+.spec-table td {
+  border-bottom: var(--hairline) solid var(--line);
+  font-size: 0.9375rem;
+  padding-block: var(--sp-2);
+  text-align: left;
+}
+
+.spec-table tr:first-child th,
+.spec-table tr:first-child td {
+  border-top: var(--hairline) solid var(--line);
+}
+
+.spec-table th {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.car-panel__desc {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.car-panel__actions {
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
+}
+
+.similar {
+  border-top: var(--hairline) solid var(--line);
+  padding-block: var(--sp-6);
+}
+
+.similar h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: var(--sp-5);
+}
+
+/* ---------- 16. Dialog de réservation ---------- */
+dialog {
+  background: var(--surface);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  margin: auto;
+  max-height: calc(100dvh - var(--sp-5));
+  max-width: 520px;
+  overflow-y: auto;
+  padding: var(--sp-5);
+  width: calc(100% - var(--sp-5));
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(6px);
+  background: var(--backdrop);
+}
+
+.dialog-head {
+  align-items: start;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.dialog-head h2 {
+  font-size: 1.375rem;
+}
+
+.dialog-head p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.dialog-close {
+  background: none;
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.dialog-close:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+/* ---------- 17. Formulaires ---------- */
+.form-grid {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.form-field {
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.form-field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-field [aria-invalid="true"] {
+  border-color: var(--sold);
+}
+
+.field-error {
+  color: var(--sold);
+  font-size: 0.8125rem;
+  min-height: 1.2em;
+}
+
+.form-success {
+  padding-block: var(--sp-4);
+  text-align: center;
+}
+
+.form-success__check {
+  border: var(--hairline) solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  display: inline-grid;
+  font-size: 1.375rem;
+  height: var(--sp-6);
+  margin-bottom: var(--sp-3);
+  place-items: center;
+  width: var(--sp-6);
+}
+
+.form-success p {
+  color: var(--muted);
+  margin-inline: auto;
+}
+
+.form-success .recap {
+  color: var(--text);
+  font-weight: 500;
+  margin-top: var(--sp-3);
+}
+
+/* ---------- 18. Page contact ---------- */
+.contact-layout {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  padding-block: var(--sp-6);
+}
+
+@media (max-width: 899px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-panel {
+  align-self: start;
+  background: var(--surface);
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+}
+
+.info-panel h2 {
+  font-size: 1.375rem;
+}
+
+.info-panel address {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-style: normal;
+}
+
+.info-panel a {
+  color: var(--text);
+}
+
+.info-panel a:hover {
+  color: var(--muted);
+}
+
+.hours-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.hours-table caption {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-2);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.hours-table td {
+  border-bottom: var(--hairline) solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding-block: var(--sp-2);
+}
+
+.hours-table td:last-child {
+  color: var(--text);
+  text-align: right;
+}
+
+.map-wrap {
+  border: var(--hairline) solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: var(--sp-7);
+  overflow: hidden;
+}
+
+.map-wrap iframe {
+  aspect-ratio: 21 / 9;
+  border: 0;
+  width: 100%;
+}
+
+/* ---------- 19. Reveal au scroll ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(var(--sp-4));
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- 20. Responsive ---------- */
+@media (max-width: 899px) {
+  .site-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero__media img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-bar__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-bar__item:nth-child(3) {
+    border-left: none;
+  }
+
+  .trust-bar__item:nth-child(n + 3) {
+    border-top: var(--hairline) solid var(--line);
+  }
+
+  .car-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 479px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-bar select {
+    min-width: 100%;
+  }
+
+  .filter-field {
+    width: 100%;
+  }
+}
+
+/* ---------- 21. Impression (fiche véhicule) ---------- */
+@media print {
+  :root {
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-2: #F2F2F3;
+    --line: rgba(0, 0, 0, 0.2);
+    --text: #0B0B0D;
+    --muted: #444444;
+    --accent: #0B0B0D;
+  }
+
+  .site-header,
+  .site-footer,
+  .scroll-cue,
+  .car-panel__actions,
+  .similar,
+  .gallery__thumbs,
+  dialog,
+  .nav-toggle,
+  .mobile-menu {
+    display: none;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .car-detail {
+    grid-template-columns: 1fr;
+    padding-block: 0;
+  }
+
+  .car-panel {
+    position: static;
+  }
+
+  a[href^="tel:"]::after {
+    content: " (" attr(href) ")";
+  }
+}

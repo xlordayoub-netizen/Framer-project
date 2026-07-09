@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collection — ORION Automobiles</title>
+  <meta name="description" content="Douze véhicules d'occasion premium en stock : Audi, BMW, Mercedes-Benz, Porsche, Aston Martin. Filtres par marque, carburant et prix. Projet de démonstration.">
+  <meta property="og:title" content="Collection — ORION Automobiles">
+  <meta property="og:description" content="Douze véhicules d'occasion premium en stock : Audi, BMW, Mercedes-Benz, Porsche, Aston Martin.">
+  <meta property="og:image" content="https://placehold.co/1600x900/0B0B0D/C6A15B?text=ORION">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="index.html">ORION</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="collections.html" aria-current="page">Collections</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+212522000000">+212 5 22 00 00 00</a>
+        <a class="btn btn--ghost" href="tel:+212522000000">Nous appeler</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close" type="button">Fermer</button>
+    <nav aria-label="Navigation mobile">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="collections.html" aria-current="page">Collections</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="tel:+212522000000">Nous appeler</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="page-head">
+      <div class="container">
+        <h1>Notre collection</h1>
+        <p><span id="collection-count">12 véhicules</span> en stock, expertisés et garantis.</p>
+      </div>
+    </section>
+
+    <div class="filter-bar">
+      <form class="container filter-bar__inner" id="filter-form" novalidate>
+        <div class="filter-field">
+          <label for="filter-marque">Marque</label>
+          <select id="filter-marque" name="marque">
+            <option value="">Toutes</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filter-carburant">Carburant</label>
+          <select id="filter-carburant" name="carburant">
+            <option value="">Tous</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filter-prix">Prix</label>
+          <select id="filter-prix" name="prix">
+            <option value="">Tous</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="filter-tri">Tri</label>
+          <select id="filter-tri" name="tri">
+            <option value="recent">Plus récent</option>
+            <option value="prix-asc">Prix croissant</option>
+            <option value="prix-desc">Prix décroissant</option>
+          </select>
+        </div>
+        <button class="btn-text" type="button" data-reset-filters hidden>Réinitialiser</button>
+      </form>
+    </div>
+
+    <section class="container" aria-label="Liste des véhicules">
+      <p class="results-note">Photographies générées par IA. Projet fictif.</p>
+      <div class="cars-grid section" id="collection-grid"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <p>Aucun véhicule ne correspond.</p>
+        <button class="btn btn--ghost" type="button" data-reset-filters>Réinitialiser les filtres</button>
+      </div>
+      <p class="card-more">
+        <button class="btn btn--ghost" type="button" id="load-more" hidden>Charger plus</button>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="wordmark">ORION</p>
+          <p>Véhicules d'occasion premium, sélectionnés et expertisés. Showroom à Casablanca, livraison dans tout le Maroc.</p>
+        </div>
+        <div>
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Coordonnées</h2>
+          <ul>
+            <li>12 Boulevard de la Corniche, Casablanca</li>
+            <li><a href="tel:+212522000000">+212 5 22 00 00 00</a></li>
+            <li><a href="mailto:contact@orion-automobiles.ma">contact@orion-automobiles.ma</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Horaires</h2>
+          <table class="footer-hours">
+            <tr><td>Lun – Sam</td><td>9h – 19h</td></tr>
+            <tr><td>Dimanche</td><td>Fermé</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="site-footer__bar">
+        <p>© 2026 ORION Automobiles</p>
+        <p>Projet de démonstration. Marque fictive. Photographies générées par IA.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
