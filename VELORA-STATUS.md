@@ -9,6 +9,41 @@ must be added in the Framer UI before I can apply /H1 Mobile etc.;
 (2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
 made" quirk on ComponentInstance link controls).**
 
+## STEP 7 — Wiring + SEO ✅ (wiring done; SEO = manual block below)
+
+### Wiring audit
+- All Réserver buttons → `wa.me/212632508708?text=Bonjour…` ✅ (component
+  defaults; CarCards append " — <model>") · phone links `tel:+212632508708`
+  ✅ · nav/footer page links ✅ · contact form → composed WhatsApp message ✅
+- Hero "Voir nos voitures" → #flotte ✅ via NEW `Anchor.tsx` (`SnRbONs`,
+  `https://framer.com/m/Anchor-xqUsw0.js`) — invisible div with real DOM id
+  (instance `NyCJPhX8d` id="flotte" at top of Fleet section) + ButtonGhost
+  gained String prop `anchor` used as href fallback (instance `ZbPCCcBLs`
+  anchor="#flotte", verified stored).
+- ⚠️ LANDMINE: **ControlType.Link props NEVER store via MCP on instances**
+  — JSON scrollSection AND plain strings are silently dropped at creation
+  and "No changes" on update. Workaround: String-typed fallback props
+  (ButtonGhost.anchor) or set in UI. Nav/Footer page links only work
+  because they are control DEFAULTS, never instance overrides.
+- Socials: user chose to keep "#" placeholders → DELIVERY CHECKLIST: paste
+  real Instagram/Facebook/TikTok URLs into Footer.tsx defaults (one edit
+  updates all 3 pages) + add link attrs on contact panel text nodes
+  `AmAlRzKYu egsM9iwJv tkYDMKdOS`.
+
+### SEO — MANUAL (no MCP tool for page settings; copy-paste)
+Page `/` → Title: `Location de voiture au Maroc — Velora Drive`
+Description: `Louez une voiture sans chauffeur partout au Maroc à partir de
+199 DH/jour. Livraison gratuite, prix tout compris, réservation WhatsApp.`
+Page `/conditions` → Title: `Conditions de location — Velora Drive`
+Description: `Caution, carburant, kilométrage, assurance, annulation :
+toutes les conditions de location Velora Drive, écrites noir sur blanc.`
+Page `/contact` → Title: `Contact — Velora Drive`
+Description: `Réservez votre voiture sur WhatsApp ou par téléphone.
+Livraison partout au Maroc, réponse en moins de 15 minutes.`
+Site settings: favicon = velora-mark-gold
+(`https://framerusercontent.com/images/kDoszPyjnCRg0YRDSEl7M5IjdsA.svg`);
+og:image = create 1200×630 after real hero photo arrives (checklist).
+
 ## STEP 6 — /contact ✅
 
 Page `/contact` = `RL17FTS0G`, Desktop root `SuFQ9JOyx` (/ink, v-stack).
