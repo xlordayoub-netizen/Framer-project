@@ -9,6 +9,51 @@ must be added in the Framer UI before I can apply /H1 Mobile etc.;
 (2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
 made" quirk on ComponentInstance link controls).**
 
+## STEP 8 — 390px review + CRAFT BAR ✅ (fixes applied; verdict below)
+
+### Fixes applied this pass
+- Grid violations: filter pills 12/20→"8px 24px" · nav links 12px→16px ·
+  form gaps 20→24 · inputs "12px 16px"→"8px 16px" (min-height 48 kept) ·
+  contact info row gaps 4→8 · testimonial meta gaps 2→4.
+- Radius: feature-chip dots 3px→999px (system = 18/10/999 only, restored).
+- Overflow at 390: contact InfoPanel 424px fixed → 1fr/min 280/max 424.
+- Tap targets: /TOC Link (14px, lh 44px) on 10 TOC links · /Link Label
+  (16px 600, lh 44px) on contact tel + 3 socials. Buttons 48, nav/footer
+  44, accordion 44+. wa.me paragraph link = WCAG inline-text exception.
+- ⚠️ Re-hit the reorder landmine (partial child list re-shuffled sections);
+  restored with full 10-child skeleton, verified. RULE: any update touching
+  Desktop-root children must list ALL TEN in canonical order.
+
+### CRAFT BAR verdict
+1. 8px grid: PASS (exceptions in force: 4px micro-gaps, hairlines, 2px/12px
+   user-specced logo composition).
+2. Hierarchy: PASS — exactly one H2 + one primary action per section; one
+   H1 per page (hero H1; /Page Title h1 on subpages).
+3. Radius: PASS — 18 / 10 / 999, no fourth value.
+4. Accessibility: PASS — contrast measured: muted/ink 7.57, muted/ink-soft
+   7.11, gold/ink 8.18, ink/gold 8.18, paper/ink 19.8 (all ≥4.5). Gold
+   never on 16px body (12px eyebrow = user token spec). Focus rings 2px
+   gold/2px offset everywhere. Real form labels. Tap targets ≥44.
+5. Conversion: PASS — fixed nav CTA = WhatsApp one tap from anywhere;
+   card price 2nd-largest (model 20 > price 18 > specs 14).
+6. Restraint: PASS — gold ≤3 roles/screen (accents, primary CTA, active
+   states); no gradients (hero scrim is brief-mandated photo treatment);
+   no glassmorphism; no floating badges.
+
+### CONSOLIDATED MANUAL LIST (everything left that MCP cannot do)
+1. Style-panel breakpoint sizes: /H1 76/56/38 · /H2 48/36/28 · /H2 Ink
+   48/36/28 · /Page Title 48/36/28 · /Quote 28→24 @390. (in progress)
+2. Phone-tree section paddings: Fleet 96 · Steps/Why bottom 96 ·
+   Testimonials 96 · CTA band 64. (in progress)
+3. Interdictions accordion → Number "10".
+4. Appear effects (Framer UI, per motion budget): HERO content = rise+fade
+   40ms stagger on load; fade+rise 24px ONCE on scroll for sections
+   `sObQWy_YP LtN_ogqEl xkMCBG7Tf VxRgEbz4s PbZiJ09Bo zQ6jc1Lbn PFtLjI7rO`.
+5. Optional polish: Phone tree — remove stat left hairlines in trust bar.
+6. SEO paste + favicon (STEP 7 block) · social URLs before delivery.
+7. Publish staging → I can run a headless Chromium audit at 390/810/1440
+   (overflow detection + tap-target measurement + screenshots).
+
 ## STEP 7 — Wiring + SEO ✅ (wiring done; SEO = manual block below)
 
 ### Wiring audit
