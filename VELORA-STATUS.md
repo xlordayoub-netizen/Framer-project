@@ -9,6 +9,31 @@ must be added in the Framer UI before I can apply /H1 Mobile etc.;
 (2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
 made" quirk on ComponentInstance link controls).**
 
+## STEP 6 — /contact ✅
+
+Page `/contact` = `RL17FTS0G`, Desktop root `SuFQ9JOyx` (/ink, v-stack).
+NavWrapper `OIzVz01z7` (Nav `JlmBN7s3i`, always ink) → Header `Srv6WUO4p`
+(eyebrow "Contact" + H1 `/Page Title` "Réponse en moins de 15 minutes.") →
+Body `M1tjSCn2g` > split `EX9FwpdBP` (h-stack wrap, gap 48):
+LEFT form col `GdvAyRfKT` (1fr, min 360): "Demande de réservation" (/H3
+Card) + ContactForm `dxD_Nfxe8` + "Ou écrivez-nous directement sur
+WhatsApp…" (/Body, whole line links to wa.me).
+RIGHT info panel `LpXeLAuQq` (424px, ink-soft card): Téléphone/WhatsApp
+(tel: link) · Adresse · Horaires · Suivez-nous (Instagram/Facebook/TikTok —
+UNLINKED until STEP 7) · MapEmbed `KFpxjeE8x` (240px).
+→ Footer `WjcPsFReS`.
+
+New code components (approved implicitly by scope-line reason "logic/state"
+— flag if disagreeing):
+| File | ID | Insert URL |
+|---|---|---|
+| ContactForm.tsx | `hl49mMc` | `https://framer.com/m/ContactForm-XGwL7o.js` |
+| MapEmbed.tsx | `EmAos2p` | `https://framer.com/m/MapEmbed-4Ddtga.js` |
+ContactForm: 7 fields w/ real labels, dropdown of the 8 models, required
+validation, submit composes multi-line WhatsApp message → wa.me (no
+backend). MapEmbed: keyless maps.google.com?output=embed, canvas shows
+static placeholder. Both verified exporting.
+
 ## STEP 5 — /conditions ✅ (structure + placeholders)
 
 Page `/conditions` = `vozflC1q8`, Desktop root `Gm2KNuJm0` (/ink, v-stack).
