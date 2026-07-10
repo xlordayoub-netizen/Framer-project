@@ -9,6 +9,24 @@ must be added in the Framer UI before I can apply /H1 Mobile etc.;
 (2) hero ButtonGhost → #flotte link deferred to STEP 7 ("No changes were
 made" quirk on ComponentInstance link controls).**
 
+## STEP 9 — AR locale (RTL) ✅ code-ready; UI pass = VELORA-AR-COPY.md
+
+MCP does not expose Framer Localization → split:
+- ✅ Code made fully localizable + RTL-safe:
+  ContactForm: all 9 field labels + WA intro are now String props (were
+  hardcoded FR — invisible to localization); composed WhatsApp message
+  reuses label props as line prefixes. CarCard: seatsLabel/currency/
+  perDay/photoLabel props added. Accordion: margin-right → margin-inline-
+  end, text-align start. All components flex-based → auto-mirror under
+  dir=rtl. All exports verified after each update.
+- 📄 `VELORA-AR-COPY.md` (committed): full FR→AR translation table (every
+  string on all 3 pages + AR SEO), and the exact Localization recipe
+  (add locale ar, RTL ON, /ar slug, per-locale prop overrides).
+- ⚠️ FLAGS: (1) AR copy is agent-written MSA/Darija — NATIVE REVIEW
+  REQUIRED before publishing; (2) Syne/Inter have no Arabic glyphs —
+  recommended AR font pairing: Cairo 800 (display) + Cairo 400/600 (body),
+  applied per-locale; (3) do NOT hand-mirror — Framer flips RTL locales.
+
 ## STEP 8 — 390px review + CRAFT BAR ✅ (fixes applied; verdict below)
 
 ### Fixes applied this pass
