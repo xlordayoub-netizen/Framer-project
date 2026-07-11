@@ -1,14 +1,17 @@
 name: Deploy to GitHub Pages
 
+# Mirrors this branch to gh-pages, which GitHub Pages serves
+# (Settings -> Pages -> Deploy from branch: gh-pages).
+# The Pages REST API is not accessible to the Actions token in this
+# repo, so branch-based deployment is used instead of deploy-pages.
+
 on:
   push:
     branches: [claude/global-skill-install-tquoq1]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -17,16 +20,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Mirror branch to gh-pages
+        run: git push --force origin HEAD:gh-pages
