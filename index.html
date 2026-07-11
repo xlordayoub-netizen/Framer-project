@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Location Ayoub — Location de voitures premium à Casablanca</title>
+<meta name="description" content="Location Ayoub — agence de location de voitures premium à Casablanca. Flotte récente, kilométrage illimité, assurance incluse, livraison aéroport. Réservez en 2 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0A08'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23C9A961' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
+<style>
+/* ================= DESIGN TOKENS ================= */
+:root{
+  color-scheme:dark;
+  --noir:#0B0A08;
+  --noir-2:#121008;
+  --surface:#161310;
+  --surface-2:#1D1915;
+  --ivoire:#F4EFE4;
+  --ivoire-dim:#B0A692;
+  --ivoire-faint:#7D7462;
+  --or:#C9A961;
+  --or-vif:#E4C97F;
+  --or-doux:rgba(201,169,97,.14);
+  --ligne:rgba(201,169,97,.16);
+  --ligne-faible:rgba(244,239,228,.07);
+  --whatsapp:#22C55E;
+  --font-display:"Bodoni Moda",Didot,"Playfair Display",Georgia,serif;
+  --font-body:"Jost",Futura,"Century Gothic","Segoe UI",sans-serif;
+  --container:1200px;
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:7rem;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --dur:.7s;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--noir);
+  color:var(--ivoire);
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--or);color:var(--noir)}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+ul{list-style:none}
+.container{width:min(var(--container),92%);margin-inline:auto}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.08;letter-spacing:.01em}
+
+/* focus visible */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--or);outline-offset:3px;border-radius:2px;
+}
+
+/* ================= REVEAL ANIMATIONS ================= */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+.reveal-d4{transition-delay:.32s}.reveal-d5{transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ================= NAV ================= */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .4s ease,border-color .4s ease,padding .4s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(11,10,8,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:var(--ligne)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1.35rem 0;transition:padding .4s ease}
+.nav.scrolled .nav-inner{padding:.85rem 0}
+.logo{display:flex;align-items:center;gap:.8rem}
+.logo-mark{
+  width:44px;height:44px;border:1px solid var(--or);display:grid;place-items:center;
+  font-family:var(--font-display);font-size:1.15rem;color:var(--or);letter-spacing:.02em;
+  transition:background .3s,color .3s;flex-shrink:0;
+}
+.logo:hover .logo-mark{background:var(--or);color:var(--noir)}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-text strong{font-family:var(--font-display);font-weight:500;font-size:1.1rem;letter-spacing:.04em}
+.logo-text span{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--or)}
+.nav-links{display:flex;gap:2.4rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--ivoire-dim);position:relative;padding:.4rem 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--or);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:hover{color:var(--ivoire)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{
+  display:inline-block;border:1px solid var(--or);color:var(--or)!important;
+  padding:.65rem 1.5rem!important;transition:background .3s,color .3s!important;
+}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:var(--or);color:var(--noir)!important}
+.burger{display:none;flex-direction:column;gap:6px;padding:.6rem;z-index:120}
+.burger span{width:26px;height:1.5px;background:var(--ivoire);transition:transform .35s var(--ease),opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;background:rgba(11,10,8,.97);backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.2rem;
+  opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--font-display);font-size:clamp(1.6rem,6vw,2.4rem);color:var(--ivoire-dim);transition:color .3s}
+.mobile-menu a:hover{color:var(--or)}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100dvh;position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding-top:7rem;overflow:hidden;
+  background:
+    radial-gradient(1100px 520px at 78% 30%,rgba(201,169,97,.10),transparent 60%),
+    radial-gradient(700px 400px at 12% 85%,rgba(201,169,97,.05),transparent 60%),
+    linear-gradient(180deg,#0B0A08 0%,#0E0C09 55%,#0B0A08 100%);
+}
+.hero::before{ /* fine vertical grid, atelier feel */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(90deg,var(--ligne-faible) 1px,transparent 1px);
+  background-size:calc(100%/6) 100%;opacity:.5;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.9rem;font-size:.78rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--or);font-weight:400;margin-bottom:1.6rem;
+}
+.eyebrow::before{content:"";width:48px;height:1px;background:var(--or)}
+.hero h1{font-size:clamp(2.9rem,6.4vw,5.4rem);margin-bottom:1.6rem}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--or-vif)}
+.hero-sub{max-width:34rem;color:var(--ivoire-dim);font-size:1.1rem;margin-bottom:2.6rem}
+.btn-row{display:flex;gap:1.1rem;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;padding:1.02rem 2.1rem;
+  font-size:.84rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease);
+  cursor:pointer;min-height:48px;
+}
+.btn:active{transform:scale(.97)}
+.btn svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-gold{background:var(--or);color:var(--noir);border:1px solid var(--or)}
+.btn-gold:hover{background:var(--or-vif);border-color:var(--or-vif)}
+.btn-ghost{border:1px solid rgba(244,239,228,.25);color:var(--ivoire)}
+.btn-ghost:hover{border-color:var(--or);color:var(--or)}
+.btn-whatsapp{background:var(--whatsapp);border:1px solid var(--whatsapp);color:#06290F}
+.btn-whatsapp:hover{background:#33d46e}
+.btn-whatsapp:hover svg{transform:none}
+
+.hero-visual{position:relative;padding:1rem 0}
+.hero-visual .plate{
+  position:absolute;inset:8% -6% 12% 6%;border:1px solid var(--ligne);
+  background:linear-gradient(160deg,rgba(201,169,97,.05),transparent 55%);
+}
+.hero-visual .plate::after{
+  content:"CARROSSERIE — ÉCH. 1:24";position:absolute;top:12px;right:14px;
+  font-size:.58rem;letter-spacing:.3em;color:var(--ivoire-faint);
+}
+.car-art{position:relative;filter:drop-shadow(0 26px 34px rgba(0,0,0,.55))}
+.car-art .stroke{stroke:var(--or);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.car-art .stroke-soft{stroke:rgba(201,169,97,.5);fill:none;stroke-width:1.6;stroke-linecap:round}
+.car-art .fill-soft{fill:rgba(201,169,97,.06)}
+.car-art .ground{stroke:rgba(201,169,97,.28);stroke-dasharray:2 10;stroke-width:1.6}
+@keyframes drawline{to{stroke-dashoffset:0}}
+.hero .car-art .draw{stroke-dasharray:2400;stroke-dashoffset:2400;animation:drawline 2.6s var(--ease) .3s forwards}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ligne);
+  border:1px solid var(--ligne);margin-top:4.5rem;position:relative;
+}
+.stat{background:var(--noir);padding:1.6rem 1.4rem}
+.stat b{display:block;font-family:var(--font-display);font-weight:500;font-size:clamp(1.7rem,2.6vw,2.3rem);color:var(--or-vif)}
+.stat > span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ivoire-faint)}
+
+/* ================= MARQUEE ================= */
+.ticker{border-block:1px solid var(--ligne);padding:1.1rem 0;overflow:hidden;background:var(--noir-2)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:ticker 36s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:2.2rem;padding-right:2.2rem;white-space:nowrap;
+  font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:var(--ivoire-dim);
+}
+.ticker-item::after{content:"";width:7px;height:7px;background:var(--or);transform:rotate(45deg);flex-shrink:0}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap}}
+
+/* ================= SECTIONS ================= */
+section{padding:var(--s7) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.8rem;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.3rem);max-width:22ch}
+.sec-head h2 em{font-style:italic;color:var(--or-vif);font-weight:400}
+.sec-num{
+  display:flex;align-items:center;gap:.9rem;font-size:.76rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--or);margin-bottom:1.1rem;font-weight:400;
+}
+.sec-num::after{content:"";width:48px;height:1px;background:var(--or)}
+.sec-head p{color:var(--ivoire-dim);max-width:30rem;font-size:1rem}
+
+/* ================= FLEET CARDS ================= */
+.fleet{background:var(--noir-2)}
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.car-card{
+  background:var(--surface);border:1px solid var(--ligne-faible);
+  transition:transform .5s var(--ease),border-color .4s,box-shadow .5s;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.car-card:hover{transform:translateY(-8px);border-color:var(--ligne);box-shadow:0 30px 50px -20px rgba(0,0,0,.6)}
+.car-card-visual{
+  position:relative;padding:2.4rem 1.8rem 1.2rem;
+  background:radial-gradient(420px 200px at 50% 110%,rgba(201,169,97,.10),transparent 70%);
+  border-bottom:1px solid var(--ligne-faible);
+}
+.car-card-visual svg{transition:transform .6s var(--ease)}
+.car-card:hover .car-card-visual svg{transform:translateX(10px)}
+.car-tag{
+  position:absolute;top:1.1rem;left:1.4rem;font-size:.62rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--or);border:1px solid var(--ligne);padding:.34rem .8rem;
+  background:rgba(11,10,8,.5);
+}
+.car-card-body{padding:1.7rem 1.8rem 1.9rem;display:flex;flex-direction:column;gap:1.15rem;flex:1}
+.car-card-body h3{font-size:1.45rem}
+.car-specs{display:flex;flex-wrap:wrap;gap:.55rem}
+.car-specs li{
+  display:inline-flex;align-items:center;gap:.42rem;font-size:.78rem;color:var(--ivoire-dim);
+  border:1px solid var(--ligne-faible);padding:.34rem .7rem;letter-spacing:.03em;
+}
+.car-specs svg{width:13px;height:13px;stroke:var(--or);flex-shrink:0}
+.car-card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1.2rem;border-top:1px solid var(--ligne-faible)}
+.price{font-family:var(--font-display);font-size:1.5rem;color:var(--or-vif)}
+.price small{font-family:var(--font-body);font-size:.72rem;color:var(--ivoire-faint);letter-spacing:.14em;text-transform:uppercase;margin-left:.35rem}
+.car-book{
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ivoire);
+  display:inline-flex;align-items:center;gap:.55rem;padding:.55rem 0;transition:color .3s;
+}
+.car-book svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.car-book:hover{color:var(--or)}
+.car-book:hover svg{transform:translateX(4px)}
+
+/* ================= WHY US ================= */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ligne-faible);border:1px solid var(--ligne-faible)}
+.why-item{background:var(--noir);padding:2.6rem 2.2rem;transition:background .4s}
+.why-item:hover{background:var(--surface)}
+.why-item .icon{
+  width:52px;height:52px;border:1px solid var(--ligne);display:grid;place-items:center;margin-bottom:1.5rem;
+  transition:background .35s,border-color .35s;
+}
+.why-item:hover .icon{background:var(--or-doux);border-color:var(--or)}
+.why-item .icon svg{width:22px;height:22px;stroke:var(--or)}
+.why-item h3{font-size:1.28rem;margin-bottom:.7rem}
+.why-item p{font-size:.95rem;color:var(--ivoire-dim)}
+
+/* ================= PROCESS ================= */
+.process{background:var(--noir-2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;position:relative}
+.step{position:relative;padding-top:1rem}
+.step-num{
+  font-family:var(--font-display);font-style:italic;font-size:clamp(3.6rem,7vw,5.5rem);
+  color:transparent;-webkit-text-stroke:1px var(--or);line-height:1;display:block;margin-bottom:1.3rem;
+}
+.step h3{font-size:1.4rem;margin-bottom:.8rem}
+.step p{color:var(--ivoire-dim);font-size:.98rem;max-width:26rem}
+.step::before{content:"";position:absolute;top:0;left:0;width:52px;height:1px;background:var(--or)}
+
+/* ================= REVIEWS ================= */
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.review{
+  background:var(--surface);border:1px solid var(--ligne-faible);padding:2.3rem 2.2rem;
+  display:flex;flex-direction:column;gap:1.3rem;position:relative;transition:border-color .35s,transform .5s var(--ease);
+}
+.review:hover{border-color:var(--ligne);transform:translateY(-5px)}
+.review::before{
+  content:"“";position:absolute;top:.6rem;right:1.6rem;font-family:var(--font-display);
+  font-size:5.5rem;line-height:1;color:var(--or-doux);pointer-events:none;
+}
+.stars{display:flex;gap:.28rem}
+.stars svg{width:15px;height:15px;fill:var(--or)}
+.review p{font-size:1.02rem;color:var(--ivoire);font-weight:300;font-style:normal;max-width:44ch}
+.review footer{display:flex;align-items:center;gap:1rem;margin-top:auto}
+.avatar{
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--or);display:grid;place-items:center;
+  font-family:var(--font-display);color:var(--or);font-size:.95rem;flex-shrink:0;background:var(--or-doux);
+}
+.review footer b{display:block;font-weight:500;font-size:.95rem;letter-spacing:.04em}
+.review footer span{font-size:.78rem;color:var(--ivoire-faint);letter-spacing:.12em;text-transform:uppercase}
+
+/* ================= CATEGORIES ================= */
+.cats{background:var(--noir-2)}
+.cats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.cat{
+  border:1px solid var(--ligne-faible);background:var(--surface);padding:2.1rem 1.7rem 1.9rem;
+  display:flex;flex-direction:column;gap:.4rem;position:relative;overflow:hidden;
+  transition:border-color .35s,transform .5s var(--ease);
+}
+.cat:hover{border-color:var(--or);transform:translateY(-7px)}
+.cat svg{margin-bottom:1.2rem;opacity:.9;transition:transform .6s var(--ease)}
+.cat:hover svg{transform:translateX(8px)}
+.cat h3{font-size:1.3rem}
+.cat .cat-count{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ivoire-faint)}
+.cat .cat-price{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--ligne-faible);font-size:.85rem;color:var(--ivoire-dim)}
+.cat .cat-price b{font-family:var(--font-display);font-weight:500;font-size:1.25rem;color:var(--or-vif);margin-left:.3rem}
+.cat-link{position:absolute;inset:0}
+
+/* ================= OFFERS ================= */
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.offer{
+  position:relative;border:1px solid var(--ligne);padding:2.6rem 2.2rem;overflow:hidden;
+  background:linear-gradient(150deg,rgba(201,169,97,.09),rgba(201,169,97,.02) 55%);
+  display:flex;flex-direction:column;gap:1rem;transition:transform .5s var(--ease),border-color .35s;
+}
+.offer:hover{transform:translateY(-7px);border-color:var(--or)}
+.offer-badge{
+  font-family:var(--font-display);font-style:italic;font-size:clamp(2.4rem,4vw,3.2rem);
+  color:var(--or-vif);line-height:1;
+}
+.offer h3{font-size:1.3rem}
+.offer p{font-size:.95rem;color:var(--ivoire-dim)}
+.offer .offer-note{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivoire-faint);margin-top:auto;padding-top:1.2rem}
+
+/* ================= FAQ ================= */
+.faq{background:var(--noir-2)}
+.faq-list{max-width:800px;margin-inline:auto;border-top:1px solid var(--ligne-faible)}
+.faq-item{border-bottom:1px solid var(--ligne-faible)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;text-align:left;
+  padding:1.55rem .3rem;font-family:var(--font-display);font-size:1.18rem;font-weight:500;letter-spacing:.01em;
+  transition:color .3s;min-height:48px;
+}
+.faq-q:hover{color:var(--or-vif)}
+.faq-q .faq-icon{
+  width:34px;height:34px;border:1px solid var(--ligne);display:grid;place-items:center;flex-shrink:0;
+  transition:transform .4s var(--ease),background .3s;
+}
+.faq-q .faq-icon svg{width:13px;height:13px;stroke:var(--or)}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--or-doux)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a > div{overflow:hidden}
+.faq-a p{padding:0 3.4rem 1.6rem .3rem;color:var(--ivoire-dim);font-size:.98rem;max-width:60ch}
+
+/* ================= CONTACT ================= */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem}
+.contact-card{
+  border:1px solid var(--ligne-faible);background:var(--surface);padding:1.6rem 1.5rem;
+  display:flex;flex-direction:column;gap:.5rem;transition:border-color .35s,transform .4s var(--ease);
+}
+.contact-card:hover{border-color:var(--or);transform:translateY(-4px)}
+.contact-card svg{width:20px;height:20px;stroke:var(--or);margin-bottom:.5rem}
+.contact-card span{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ivoire-faint)}
+.contact-card b{font-weight:400;font-size:1rem;letter-spacing:.02em}
+.hours{border:1px solid var(--ligne-faible);background:var(--surface);padding:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.hours div span{display:block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ivoire-faint);margin-bottom:.3rem}
+.hours div b{font-weight:400;font-size:.95rem}
+
+.form-panel{border:1px solid var(--ligne);background:var(--surface);padding:2.5rem 2.4rem;position:relative}
+.form-panel::before{content:"";position:absolute;top:-1px;left:-1px;width:60px;height:60px;border-top:2px solid var(--or);border-left:2px solid var(--or);pointer-events:none}
+.form-panel::after{content:"";position:absolute;bottom:-1px;right:-1px;width:60px;height:60px;border-bottom:2px solid var(--or);border-right:2px solid var(--or);pointer-events:none}
+.form-panel h3{font-size:1.6rem;margin-bottom:.5rem}
+.form-panel > p{color:var(--ivoire-dim);font-size:.95rem;margin-bottom:1.9rem}
+.field{margin-bottom:1.35rem}
+.field label{display:block;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivoire-dim);margin-bottom:.55rem}
+.field label em{color:var(--or);font-style:normal}
+.field input,.field select{
+  width:100%;background:var(--noir);border:1px solid var(--ligne-faible);color:var(--ivoire);
+  padding:.9rem 1rem;font:inherit;font-size:.98rem;transition:border-color .3s;min-height:48px;
+}
+.field input::placeholder{color:var(--ivoire-faint)}
+.field input:focus,.field select:focus{border-color:var(--or);outline:none}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A961' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;cursor:pointer}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form-hint{font-size:.8rem;color:var(--ivoire-faint);margin-top:1rem;text-align:center}
+
+/* ================= FOOTER ================= */
+.footer{border-top:1px solid var(--ligne);background:var(--noir-2);padding:4.5rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3.5rem}
+.footer-brand p{color:var(--ivoire-dim);font-size:.92rem;max-width:28rem;margin-top:1.2rem}
+.footer h4{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--or);font-weight:500;margin-bottom:1.3rem}
+.footer-col li{margin-bottom:.7rem}
+.footer-col a{font-size:.94rem;color:var(--ivoire-dim);transition:color .25s}
+.footer-col a:hover{color:var(--or-vif)}
+.footer-bottom{
+  border-top:1px solid var(--ligne-faible);padding-top:1.8rem;display:flex;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--ivoire-faint);letter-spacing:.06em;
+}
+.footer-bottom a{color:var(--ivoire-dim)}
+.footer-bottom a:hover{color:var(--or)}
+
+/* ================= WHATSAPP FLOAT ================= */
+.wa-float{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:90;width:58px;height:58px;border-radius:50%;
+  background:var(--whatsapp);display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(34,197,94,.35);transition:transform .35s var(--ease);
+}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.wa-float::before{
+  content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(34,197,94,.5);
+  animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.35);opacity:0}}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:1024px){
+  section{padding:5rem 0}
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{max-width:620px;order:-1;margin-top:1rem}
+  .hero{padding-top:8.5rem}
+  .fleet-grid,.offers-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .cats-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{gap:2rem}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .fleet-grid,.offers-grid,.why-grid,.reviews-grid,.cats-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:2.8rem}
+  .field-row{grid-template-columns:1fr}
+  .form-panel{padding:2rem 1.5rem}
+  .contact-cards{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr;gap:2.2rem}
+  .sec-head{margin-bottom:2.5rem}
+}
+@media (max-width:430px){
+  .contact-cards{grid-template-columns:1fr}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#accueil" aria-label="Location Ayoub — retour à l'accueil">
+      <span class="logo-mark">LA</span>
+      <span class="logo-text"><strong>Location Ayoub</strong><span>Automobiles</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#flotte">Flotte</a>
+      <a href="#avantages">Pourquoi nous</a>
+      <a href="#categories">Catégories</a>
+      <a href="#offres">Offres</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Réserver</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#flotte">Flotte</a>
+  <a href="#avantages">Pourquoi nous</a>
+  <a href="#categories">Catégories</a>
+  <a href="#offres">Offres</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Réserver</a>
+</div>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="accueil">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow reveal">Agence premium — Casablanca</p>
+        <h1 class="reveal reveal-d1">La route mérite<br><em>une belle voiture.</em></h1>
+        <p class="hero-sub reveal reveal-d2">Location Ayoub met à votre disposition une flotte récente et méticuleusement entretenue — de la citadine agile au coupé d'exception. Réservation en 2 minutes, kilométrage illimité, assurance incluse.</p>
+        <div class="btn-row reveal reveal-d3">
+          <a class="btn btn-gold" href="#contact">Réserver un véhicule
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#flotte">Découvrir la flotte</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal reveal-d2" aria-hidden="true">
+        <div class="plate"></div>
+        <!-- Coupé sport — dessin technique or -->
+        <svg class="car-art" viewBox="0 0 640 250" role="img" aria-label="Dessin technique d'un coupé sport">
+          <path class="fill-soft" d="M44 186 C34 162 40 130 74 116 C118 98 158 62 246 50 C306 42 344 43 384 56 C434 72 470 86 540 98 C580 105 606 124 614 148 C619 164 615 178 602 186 Z"/>
+          <path class="stroke draw" d="M44 186 C34 162 40 130 74 116 C118 98 158 62 246 50 C306 42 344 43 384 56 C434 72 470 86 540 98 C580 105 606 124 614 148 C619 164 615 178 602 186"/>
+          <path class="stroke-soft" d="M252 58 C300 50 342 52 376 63 C414 76 448 87 500 97"/>
+          <path class="stroke-soft" d="M300 55 L308 108 M308 108 C260 106 220 108 190 114 M308 108 C360 108 420 112 470 120"/>
+          <path class="stroke-soft" d="M92 118 C130 108 170 102 208 100"/>
+          <path class="stroke-soft" d="M560 120 C580 128 596 142 602 158"/>
+          <!-- roues -->
+          <circle class="stroke" cx="168" cy="186" r="36"/>
+          <circle class="stroke-soft" cx="168" cy="186" r="22"/>
+          <circle cx="168" cy="186" r="4" fill="#C9A961"/>
+          <path class="stroke-soft" d="M168 164 v10 M168 198 v10 M146 186 h10 M180 186 h10 M153 171 l7 7 M176 194 l7 7 M183 171 l-7 7 M160 194 l-7 7"/>
+          <circle class="stroke" cx="492" cy="186" r="36"/>
+          <circle class="stroke-soft" cx="492" cy="186" r="22"/>
+          <circle cx="492" cy="186" r="4" fill="#C9A961"/>
+          <path class="stroke-soft" d="M492 164 v10 M492 198 v10 M470 186 h10 M504 186 h10 M477 171 l7 7 M500 194 l7 7 M507 171 l-7 7 M484 194 l-7 7"/>
+          <!-- sol -->
+          <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal reveal-d4">
+      <div class="stat"><b><span class="count" data-count="40">0</span>+</b><span>Véhicules récents</span></div>
+      <div class="stat"><b><span class="count" data-count="2500">0</span>+</b><span>Clients satisfaits</span></div>
+      <div class="stat"><b>4,9<small style="font-size:55%">/5</small></b><span>Note moyenne</span></div>
+      <div class="stat"><b>24/7</b><span>Assistance routière</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Kilométrage illimité</span>
+    <span class="ticker-item">Assurance tous risques incluse</span>
+    <span class="ticker-item">Livraison aéroport Mohammed V</span>
+    <span class="ticker-item">Assistance 24h/24 — 7j/7</span>
+    <span class="ticker-item">Annulation gratuite 48h</span>
+    <span class="ticker-item">Kilométrage illimité</span>
+    <span class="ticker-item">Assurance tous risques incluse</span>
+    <span class="ticker-item">Livraison aéroport Mohammed V</span>
+    <span class="ticker-item">Assistance 24h/24 — 7j/7</span>
+    <span class="ticker-item">Annulation gratuite 48h</span>
+  </div>
+</div>
+
+<!-- ============ FLOTTE ============ -->
+<section class="fleet" id="flotte">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">01 — La flotte</p>
+        <h2 class="reveal reveal-d1">Véhicules <em>à la une</em></h2>
+      </div>
+      <p class="reveal reveal-d2">Chaque véhicule est révisé, désinfecté et livré avec le plein. Tarifs transparents, sans frais cachés.</p>
+    </div>
+
+    <div class="fleet-grid">
+      <!-- Porsche 911 -->
+      <article class="car-card reveal">
+        <div class="car-card-visual">
+          <span class="car-tag">Sport</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M44 186 C34 162 40 130 74 116 C118 98 158 62 246 50 C306 42 344 43 384 56 C434 72 470 86 540 98 C580 105 606 124 614 148 C619 164 615 178 602 186 Z"/>
+            <path class="stroke" d="M44 186 C34 162 40 130 74 116 C118 98 158 62 246 50 C306 42 344 43 384 56 C434 72 470 86 540 98 C580 105 606 124 614 148 C619 164 615 178 602 186"/>
+            <path class="stroke-soft" d="M252 58 C300 50 342 52 376 63 C414 76 448 87 500 97"/>
+            <path class="stroke-soft" d="M300 55 L308 108 M308 108 C260 106 220 108 190 114 M308 108 C360 108 420 112 470 120"/>
+            <circle class="stroke" cx="168" cy="186" r="36"/><circle class="stroke-soft" cx="168" cy="186" r="20"/>
+            <circle class="stroke" cx="492" cy="186" r="36"/><circle class="stroke-soft" cx="492" cy="186" r="20"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>Porsche 911 Carrera</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Boîte PDK</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>2 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Essence</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">4 500<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20la%20Porsche%20911%20Carrera." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mercedes Classe E -->
+      <article class="car-card reveal reveal-d1">
+        <div class="car-card-visual">
+          <span class="car-tag">Luxe</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M36 186 C28 168 30 148 48 138 L92 128 C120 100 160 78 226 74 L360 74 C420 76 460 96 496 126 L568 136 C596 142 610 158 610 172 C610 180 604 186 596 186 Z"/>
+            <path class="stroke" d="M36 186 C28 168 30 148 48 138 L92 128 C120 100 160 78 226 74 L360 74 C420 76 460 96 496 126 L568 136 C596 142 610 158 610 172 C610 180 604 186 596 186"/>
+            <path class="stroke-soft" d="M108 126 C136 102 172 84 228 81 L354 81 C408 83 446 101 482 128"/>
+            <path class="stroke-soft" d="M282 81 L282 124"/>
+            <circle class="stroke" cx="160" cy="186" r="34"/><circle class="stroke-soft" cx="160" cy="186" r="19"/>
+            <circle class="stroke" cx="488" cy="186" r="34"/><circle class="stroke-soft" cx="488" cy="186" r="19"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>Mercedes Classe E</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Automatique</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Diesel</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">1 800<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20la%20Mercedes%20Classe%20E." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Range Rover Sport -->
+      <article class="car-card reveal reveal-d2">
+        <div class="car-card-visual">
+          <span class="car-tag">SUV Luxe</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M42 186 C34 176 32 158 40 146 L60 138 L76 96 C82 78 100 66 130 64 L420 64 C470 66 500 84 528 118 L586 132 C604 138 612 152 610 168 C608 178 602 186 592 186 Z"/>
+            <path class="stroke" d="M42 186 C34 176 32 158 40 146 L60 138 L76 96 C82 78 100 66 130 64 L420 64 C470 66 500 84 528 118 L586 132 C604 138 612 152 610 168 C608 178 602 186 592 186"/>
+            <path class="stroke-soft" d="M92 100 C98 84 112 74 136 72 L414 72 C458 74 486 90 512 120"/>
+            <path class="stroke-soft" d="M250 72 L250 122 M390 72 L390 122"/>
+            <circle class="stroke" cx="158" cy="186" r="36"/><circle class="stroke-soft" cx="158" cy="186" r="20"/>
+            <circle class="stroke" cx="490" cy="186" r="36"/><circle class="stroke-soft" cx="490" cy="186" r="20"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>Range Rover Sport</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Automatique</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Diesel</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">2 500<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20le%20Range%20Rover%20Sport." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BMW Série 4 -->
+      <article class="car-card reveal">
+        <div class="car-card-visual">
+          <span class="car-tag">Sport</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M40 186 C30 166 34 140 62 126 C100 106 150 72 240 60 C310 52 360 56 410 72 C450 86 480 96 545 106 C585 112 606 128 612 150 C616 166 612 178 600 186 Z"/>
+            <path class="stroke" d="M40 186 C30 166 34 140 62 126 C100 106 150 72 240 60 C310 52 360 56 410 72 C450 86 480 96 545 106 C585 112 606 128 612 150 C616 166 612 178 600 186"/>
+            <path class="stroke-soft" d="M246 66 C300 58 350 61 396 75 C430 86 460 95 510 104"/>
+            <path class="stroke-soft" d="M310 62 L316 114 M316 114 C266 112 220 114 184 120 M316 114 C368 114 428 118 480 126"/>
+            <circle class="stroke" cx="166" cy="186" r="35"/><circle class="stroke-soft" cx="166" cy="186" r="19"/>
+            <circle class="stroke" cx="494" cy="186" r="35"/><circle class="stroke-soft" cx="494" cy="186" r="19"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>BMW Série 4 Coupé</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Automatique</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>4 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Essence</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">2 200<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20la%20BMW%20S%C3%A9rie%204." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Audi Q5 -->
+      <article class="car-card reveal reveal-d1">
+        <div class="car-card-visual">
+          <span class="car-tag">SUV</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M44 186 C36 176 34 160 42 148 L64 138 L84 100 C92 82 110 72 138 70 L400 70 C450 72 482 90 510 122 L578 136 C600 142 608 156 606 170 C604 180 598 186 588 186 Z"/>
+            <path class="stroke" d="M44 186 C36 176 34 160 42 148 L64 138 L84 100 C92 82 110 72 138 70 L400 70 C450 72 482 90 510 122 L578 136 C600 142 608 156 606 170 C604 180 598 186 588 186"/>
+            <path class="stroke-soft" d="M100 104 C106 88 120 80 142 78 L394 78 C438 80 466 96 492 124"/>
+            <path class="stroke-soft" d="M256 78 L256 124 M380 78 L380 122"/>
+            <circle class="stroke" cx="162" cy="186" r="35"/><circle class="stroke-soft" cx="162" cy="186" r="19"/>
+            <circle class="stroke" cx="486" cy="186" r="35"/><circle class="stroke-soft" cx="486" cy="186" r="19"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>Audi Q5</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Automatique</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Diesel</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">1 400<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20l%27Audi%20Q5." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Renault Clio 5 -->
+      <article class="car-card reveal reveal-d2">
+        <div class="car-card-visual">
+          <span class="car-tag">Économique</span>
+          <svg viewBox="0 0 640 250" aria-hidden="true" class="car-art">
+            <path class="fill-soft" d="M60 186 C48 176 46 158 56 144 L84 134 L110 96 C120 80 140 72 168 72 L340 74 C390 78 430 96 462 128 L552 140 C576 146 586 160 582 172 C580 180 572 186 562 186 Z"/>
+            <path class="stroke" d="M60 186 C48 176 46 158 56 144 L84 134 L110 96 C120 80 140 72 168 72 L340 74 C390 78 430 96 462 128 L552 140 C576 146 586 160 582 172 C580 180 572 186 562 186"/>
+            <path class="stroke-soft" d="M124 100 C132 86 148 80 170 80 L336 82 C380 86 414 102 444 130"/>
+            <path class="stroke-soft" d="M256 82 L256 126"/>
+            <circle class="stroke" cx="172" cy="186" r="33"/><circle class="stroke-soft" cx="172" cy="186" r="18"/>
+            <circle class="stroke" cx="466" cy="186" r="33"/><circle class="stroke-soft" cx="466" cy="186" r="18"/>
+            <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+          </svg>
+        </div>
+        <div class="car-card-body">
+          <h3>Renault Clio 5</h3>
+          <ul class="car-specs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Manuelle</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 places</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 22V8l7-5v19M10 9h8a3 3 0 0 1 3 3v10"/></svg>Diesel</li>
+          </ul>
+          <div class="car-card-foot">
+            <span class="price">350<small>MAD / jour</small></span>
+            <a class="car-book" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20la%20Renault%20Clio%205." target="_blank" rel="noopener">Réserver
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POURQUOI NOUS ============ -->
+<section id="avantages">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">02 — Nos engagements</p>
+        <h2 class="reveal reveal-d1">Pourquoi choisir <em>Location Ayoub</em></h2>
+      </div>
+      <p class="reveal reveal-d2">Une exigence de maison de luxe, appliquée à chaque détail de votre location.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>Assurance tous risques</h3>
+        <p>Chaque location inclut une couverture complète. Roulez l'esprit libre, sans surprise au retour du véhicule.</p>
+      </div>
+      <div class="why-item reveal reveal-d1">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M2.8 9h18.4M2.8 15h18.4M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+        <h3>Kilométrage illimité</h3>
+        <p>De Tanger à Dakhla, aucune limite. Le Maroc est à vous, sans compteur qui tourne contre vous.</p>
+      </div>
+      <div class="why-item reveal reveal-d2">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M17.8 19.2L16 11l3.5-3.5c.8-.8.8-2.2 0-3s-2.2-.8-3 0L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.3.4c-.4.6-.2 1.4.4 1.8L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.1 5.4c.4.6 1.2.8 1.8.4l.4-.3c.4-.3.6-.8.5-1.3z"/></svg></span>
+        <h3>Livraison aéroport &amp; hôtel</h3>
+        <p>Votre véhicule vous attend à l'aéroport Mohammed V, à votre hôtel ou à votre domicile, à l'heure convenue.</p>
+      </div>
+      <div class="why-item reveal">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg></span>
+        <h3>Assistance 24h/24</h3>
+        <p>Une panne, une question, un imprévu ? Notre équipe répond à toute heure, tous les jours de l'année.</p>
+      </div>
+      <div class="why-item reveal reveal-d1">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3L8 9l4 12 4-12-3-6M2 9h20"/></svg></span>
+        <h3>Flotte récente</h3>
+        <p>Aucun véhicule de plus de deux ans. Révision complète et contrôle qualité avant chaque remise de clés.</p>
+      </div>
+      <div class="why-item reveal reveal-d2">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 15h4"/></svg></span>
+        <h3>Prix transparents</h3>
+        <p>Le tarif annoncé est le tarif payé. Caution claire, contrat lisible, zéro frais dissimulé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESSUS ============ -->
+<section class="process">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">03 — Le processus</p>
+        <h2 class="reveal reveal-d1">Trois étapes, <em>et la route est à vous</em></h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <h3>Choisissez votre véhicule</h3>
+        <p>Parcourez la flotte en ligne ou demandez conseil sur WhatsApp. Nous vous orientons selon votre trajet, votre budget et vos envies.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <span class="step-num">02</span>
+        <h3>Réservez en 2 minutes</h3>
+        <p>Un message WhatsApp ou le formulaire ci-dessous suffit. Confirmation immédiate, permis et pièce d'identité — rien de plus.</p>
+      </div>
+      <div class="step reveal reveal-d4">
+        <span class="step-num">03</span>
+        <h3>Prenez la route</h3>
+        <p>Retrait à l'agence ou livraison où vous voulez. Le plein est fait, le contrat est prêt, les clés vous attendent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVIS ============ -->
+<section id="avis">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">04 — Ils témoignent</p>
+        <h2 class="reveal reveal-d1">La confiance <em>se mérite</em></h2>
+      </div>
+      <p class="reveal reveal-d2">Note moyenne de 4,9/5 sur plus de 600 avis vérifiés.</p>
+    </div>
+    <div class="reviews-grid">
+      <article class="review reveal">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>Service irréprochable. La Classe E était impeccable, livrée à l'aéroport avec dix minutes d'avance. On sent une vraie culture du détail — je ne louerai plus ailleurs.</p>
+        <footer>
+          <span class="avatar">YB</span>
+          <div><b>Yasmine B.</b><span>Casablanca</span></div>
+        </footer>
+      </article>
+      <article class="review reveal reveal-d1">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>Réservation par WhatsApp en cinq minutes, un dimanche soir. Le Range Rover était comme neuf et le kilométrage illimité a changé notre road-trip vers le Sud. Bravo.</p>
+        <footer>
+          <span class="avatar">KE</span>
+          <div><b>Karim E.</b><span>Rabat</span></div>
+        </footer>
+      </article>
+      <article class="review reveal reveal-d2">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>En vacances au Maroc, j'avais besoin d'une voiture fiable rapidement. Prise en charge à l'hôtel, contrat clair, aucun frais surprise. Une agence qui tient parole, c'est rare.</p>
+        <footer>
+          <span class="avatar">SM</span>
+          <div><b>Sophie M.</b><span>Paris — en séjour</span></div>
+        </footer>
+      </article>
+      <article class="review reveal reveal-d3">
+        <div class="stars" aria-label="5 étoiles sur 5">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </div>
+        <p>Je loue la 911 pour les grandes occasions. Véhicule d'exception, état concours, remise de clés soignée. L'assistance 24/7 n'est pas un slogan — testée et approuvée.</p>
+        <footer>
+          <span class="avatar">OT</span>
+          <div><b>Omar T.</b><span>Marrakech</span></div>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATÉGORIES ============ -->
+<section class="cats" id="categories">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">05 — Catégories</p>
+        <h2 class="reveal reveal-d1">Une flotte pour <em>chaque trajet</em></h2>
+      </div>
+      <p class="reveal reveal-d2">Du déplacement quotidien à l'événement d'exception — quatre gammes, un même niveau d'exigence.</p>
+    </div>
+    <div class="cats-grid">
+      <article class="cat reveal">
+        <svg class="car-art" viewBox="0 0 640 250" width="200" aria-hidden="true">
+          <path class="stroke" d="M60 186 C48 176 46 158 56 144 L84 134 L110 96 C120 80 140 72 168 72 L340 74 C390 78 430 96 462 128 L552 140 C576 146 586 160 582 172 C580 180 572 186 562 186"/>
+          <circle class="stroke" cx="172" cy="186" r="33"/><circle class="stroke" cx="466" cy="186" r="33"/>
+          <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+        </svg>
+        <h3>Économique</h3>
+        <p class="cat-count">Clio · i10 · Logan · Picanto</p>
+        <p class="cat-price">Dès<b>250 MAD<small style="font-size:60%">/j</small></b></p>
+        <a class="cat-link" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20cherche%20un%20v%C3%A9hicule%20%C3%A9conomique." target="_blank" rel="noopener" aria-label="Réserver un véhicule économique"></a>
+      </article>
+      <article class="cat reveal reveal-d1">
+        <svg class="car-art" viewBox="0 0 640 250" width="200" aria-hidden="true">
+          <path class="stroke" d="M42 186 C34 176 32 158 40 146 L60 138 L76 96 C82 78 100 66 130 64 L420 64 C470 66 500 84 528 118 L586 132 C604 138 612 152 610 168 C608 178 602 186 592 186"/>
+          <circle class="stroke" cx="158" cy="186" r="36"/><circle class="stroke" cx="490" cy="186" r="36"/>
+          <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+        </svg>
+        <h3>SUV</h3>
+        <p class="cat-count">Q5 · Tucson · 3008 · Duster</p>
+        <p class="cat-price">Dès<b>900 MAD<small style="font-size:60%">/j</small></b></p>
+        <a class="cat-link" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20cherche%20un%20SUV." target="_blank" rel="noopener" aria-label="Réserver un SUV"></a>
+      </article>
+      <article class="cat reveal reveal-d2">
+        <svg class="car-art" viewBox="0 0 640 250" width="200" aria-hidden="true">
+          <path class="stroke" d="M36 186 C28 168 30 148 48 138 L92 128 C120 100 160 78 226 74 L360 74 C420 76 460 96 496 126 L568 136 C596 142 610 158 610 172 C610 180 604 186 596 186"/>
+          <circle class="stroke" cx="160" cy="186" r="34"/><circle class="stroke" cx="488" cy="186" r="34"/>
+          <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+        </svg>
+        <h3>Luxe</h3>
+        <p class="cat-count">Classe E · Série 5 · A6 · Range</p>
+        <p class="cat-price">Dès<b>1 500 MAD<small style="font-size:60%">/j</small></b></p>
+        <a class="cat-link" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20cherche%20un%20v%C3%A9hicule%20de%20luxe." target="_blank" rel="noopener" aria-label="Réserver un véhicule de luxe"></a>
+      </article>
+      <article class="cat reveal reveal-d3">
+        <svg class="car-art" viewBox="0 0 640 250" width="200" aria-hidden="true">
+          <path class="stroke" d="M44 186 C34 162 40 130 74 116 C118 98 158 62 246 50 C306 42 344 43 384 56 C434 72 470 86 540 98 C580 105 606 124 614 148 C619 164 615 178 602 186"/>
+          <circle class="stroke" cx="168" cy="186" r="36"/><circle class="stroke" cx="492" cy="186" r="36"/>
+          <line class="ground" x1="20" y1="228" x2="620" y2="228"/>
+        </svg>
+        <h3>Sport</h3>
+        <p class="cat-count">911 · Série 4 · AMG GT</p>
+        <p class="cat-price">Dès<b>2 800 MAD<small style="font-size:60%">/j</small></b></p>
+        <a class="cat-link" href="https://wa.me/212600000000?text=Bonjour%2C%20je%20cherche%20un%20v%C3%A9hicule%20sport." target="_blank" rel="noopener" aria-label="Réserver un véhicule sport"></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFRES ============ -->
+<section id="offres">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">06 — Offres spéciales</p>
+        <h2 class="reveal reveal-d1">Le luxe, <em>au juste prix</em></h2>
+      </div>
+    </div>
+    <div class="offers-grid">
+      <article class="offer reveal">
+        <span class="offer-badge">−15%</span>
+        <h3>Semaine découverte</h3>
+        <p>Pour toute location de 7 jours et plus, profitez de 15% de remise immédiate sur l'ensemble de la flotte.</p>
+        <span class="offer-note">Valable toute l'année · cumulable livraison</span>
+      </article>
+      <article class="offer reveal reveal-d1">
+        <span class="offer-badge">−25%</span>
+        <h3>Formule mensuelle</h3>
+        <p>Un mois complet au volant, un quart du prix en moins. Idéal pour les séjours longue durée et les professionnels.</p>
+        <span class="offer-note">30 jours et plus · entretien inclus</span>
+      </article>
+      <article class="offer reveal reveal-d2">
+        <span class="offer-badge">Offerte</span>
+        <h3>Livraison aéroport</h3>
+        <p>Atterrissez, signez, roulez. La livraison à l'aéroport Mohammed V est offerte dès 3 jours de location.</p>
+        <span class="offer-note">Aéroport Mohammed V · dès 3 jours</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">07 — Questions fréquentes</p>
+        <h2 class="reveal reveal-d1">Tout ce qu'il faut <em>savoir</em></h2>
+      </div>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quels documents faut-il pour louer un véhicule ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Un permis de conduire valide depuis au moins 2 ans et une pièce d'identité (CIN ou passeport). Pour les catégories Luxe et Sport, le permis doit dater de 3 ans minimum. C'est tout — pas de dossier, pas de paperasse.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Y a-t-il une caution ? Comment fonctionne-t-elle ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Oui, une caution est demandée à la prise du véhicule (empreinte bancaire ou espèces selon la catégorie). Elle est intégralement restituée au retour du véhicule, après un état des lieux fait ensemble, en toute transparence.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quel est l'âge minimum pour louer ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>21 ans pour les catégories Économique et SUV, 25 ans pour les catégories Luxe et Sport. Un second conducteur peut être ajouté gratuitement au contrat s'il remplit les mêmes conditions.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Livrez-vous en dehors de Casablanca ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Oui. La livraison est offerte à l'aéroport Mohammed V dès 3 jours de location, et possible partout à Casablanca. Pour Rabat, Marrakech ou une autre ville, contactez-nous sur WhatsApp — nous organisons la livraison sur devis.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          L'assurance est-elle vraiment incluse ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Toutes nos locations incluent une assurance tous risques avec franchise. Une option « franchise réduite » est disponible pour rouler l'esprit totalement tranquille. Les détails figurent noir sur blanc dans le contrat.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Puis-je annuler ou modifier ma réservation ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div><p>Annulation gratuite jusqu'à 48h avant la prise du véhicule, sans justification. Vous pouvez aussi modifier les dates ou changer de véhicule selon disponibilité — un message WhatsApp suffit.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <p class="sec-num reveal">08 — Contact</p>
+        <h2 class="reveal reveal-d1">Parlons de <em>votre trajet</em></h2>
+      </div>
+      <p class="reveal reveal-d2">Réponse en moins de 15 minutes aux horaires d'ouverture.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-cards">
+          <!-- PLACEHOLDER: remplacer 212600000000 par le vrai numéro WhatsApp -->
+          <a class="contact-card" href="https://wa.me/212600000000" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <span>WhatsApp</span><b>+212 6XX-XXXXXX</b>
+          </a>
+          <!-- PLACEHOLDER: remplacer par le vrai numéro -->
+          <a class="contact-card" href="tel:+212600000000">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
+            <span>Téléphone</span><b>+212 6XX-XXXXXX</b>
+          </a>
+          <!-- PLACEHOLDER: remplacer par la vraie adresse + lien Google Maps -->
+          <a class="contact-card" href="https://maps.google.com/?q=Casablanca" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Agence</span><b>Bd Placeholder, Casablanca</b>
+          </a>
+          <a class="contact-card" href="mailto:contact@locationayoub.ma">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            <span>Email</span><b>contact@locationayoub.ma</b>
+          </a>
+        </div>
+        <div class="hours">
+          <div><span>Lun — Sam</span><b>08h30 — 20h00</b></div>
+          <div><span>Dimanche</span><b>09h00 — 18h00</b></div>
+          <div><span>Aéroport &amp; urgences</span><b>24h/24 — 7j/7</b></div>
+        </div>
+      </div>
+
+      <div class="form-panel reveal reveal-d2">
+        <h3>Demande de réservation</h3>
+        <p>Remplissez ce formulaire — il s'ouvre dans WhatsApp avec votre demande prête à envoyer.</p>
+        <form id="bookingForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-nom">Nom complet <em>*</em></label>
+              <input type="text" id="f-nom" name="nom" placeholder="Votre nom" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-tel">Téléphone <em>*</em></label>
+              <input type="tel" id="f-tel" name="tel" placeholder="+212 6XX XXX XXX" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-cat">Catégorie souhaitée</label>
+            <select id="f-cat" name="categorie">
+              <option>Économique — dès 250 MAD/j</option>
+              <option>SUV — dès 900 MAD/j</option>
+              <option>Luxe — dès 1 500 MAD/j</option>
+              <option>Sport — dès 2 800 MAD/j</option>
+              <option>Je ne sais pas encore — conseillez-moi</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-debut">Date de départ <em>*</em></label>
+              <input type="date" id="f-debut" name="debut" required>
+            </div>
+            <div class="field">
+              <label for="f-fin">Date de retour <em>*</em></label>
+              <input type="date" id="f-fin" name="fin" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-whatsapp" style="width:100%;justify-content:center">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.49 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.12-.28-.2-.58-.35z"/></svg>
+            Envoyer via WhatsApp
+          </button>
+          <p class="form-hint">Sans engagement — nous confirmons la disponibilité avant toute réservation.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#accueil">
+          <span class="logo-mark">LA</span>
+          <span class="logo-text"><strong>Location Ayoub</strong><span>Automobiles</span></span>
+        </a>
+        <p>Agence de location de voitures premium à Casablanca. Une flotte récente, un service d'exception et des prix transparents — depuis la première clé remise.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#flotte">La flotte</a></li>
+          <li><a href="#avantages">Pourquoi nous</a></li>
+          <li><a href="#categories">Catégories</a></li>
+          <li><a href="#offres">Offres spéciales</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Catégories</h4>
+        <ul>
+          <li><a href="#categories">Économique</a></li>
+          <li><a href="#categories">SUV</a></li>
+          <li><a href="#categories">Luxe</a></li>
+          <li><a href="#categories">Sport</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/212600000000" target="_blank" rel="noopener">WhatsApp — +212 6XX-XXXXXX</a></li>
+          <li><a href="tel:+212600000000">+212 6XX-XXXXXX</a></li>
+          <li><a href="mailto:contact@locationayoub.ma">contact@locationayoub.ma</a></li>
+          <li><a href="https://maps.google.com/?q=Casablanca" target="_blank" rel="noopener">Bd Placeholder, Casablanca</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Location Ayoub — Tous droits réservés.</span>
+      <span><a href="#accueil">Mentions légales</a> · <a href="#accueil">Politique de confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<a class="wa-float" href="https://wa.me/212600000000?text=Bonjour%20Location%20Ayoub%20%F0%9F%91%8B" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a9.9 9.9 0 0 0 1.46 5.19L2 22l4.96-1.42A10 10 0 1 0 12 2zm5.5 12.4c-.25.7-1.42 1.33-2 1.42-.51.08-1.16.11-1.88-.12-.43-.14-.99-.33-1.7-.63-3-1.3-4.95-4.3-5.1-4.5-.15-.2-1.22-1.62-1.22-3.1 0-1.47.77-2.19 1.04-2.49.28-.3.6-.37.8-.37h.57c.18.01.43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.31.39-.45.52-.15.15-.3.31-.13.61.17.3.75 1.24 1.61 2.01a8.2 8.2 0 0 0 2.45 1.55c.3.15.48.13.65-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.23.58.35.07.12.07.72-.18 1.42z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Nav scroll state */
+  var nav = document.getElementById("nav");
+  function onScroll(){ nav.classList.toggle("scrolled", window.scrollY > 30); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* Mobile menu */
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("mobileMenu");
+  burger.addEventListener("click", function(){
+    var open = menu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      menu.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  /* Reveal on scroll */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Animated counters */
+  var counters = document.querySelectorAll(".count");
+  function animateCount(el){
+    var target = parseInt(el.dataset.count, 10);
+    if (reduceMotion){ el.textContent = target.toLocaleString("fr-FR"); return; }
+    var start = null, dur = 1600;
+    function tick(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("fr-FR");
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ("IntersectionObserver" in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target); }
+      });
+    }, {threshold:.5});
+    counters.forEach(function(el){ cio.observe(el); });
+  } else {
+    counters.forEach(animateCount);
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll(".faq-q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function(o){
+        o.classList.remove("open");
+        o.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!isOpen){
+        item.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  /* Booking form -> WhatsApp */
+  /* PLACEHOLDER: remplacer par le vrai numero WhatsApp (indicatif pays sans +) */
+  var WHATSAPP_NUMBER = "212600000000";
+  var form = document.getElementById("bookingForm");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var nom = document.getElementById("f-nom").value.trim();
+    var tel = document.getElementById("f-tel").value.trim();
+    var cat = document.getElementById("f-cat").value;
+    var debut = document.getElementById("f-debut").value;
+    var fin = document.getElementById("f-fin").value;
+    if (!nom || !tel || !debut || !fin){
+      form.reportValidity ? form.reportValidity() : alert("Merci de remplir tous les champs obligatoires.");
+      return;
+    }
+    function fmt(d){
+      try { return new Date(d + "T00:00:00").toLocaleDateString("fr-FR", {day:"numeric", month:"long", year:"numeric"}); }
+      catch(e){ return d; }
+    }
+    var msg = "Bonjour Location Ayoub,\n\nJe souhaite réserver un véhicule :\n"
+      + "• Nom : " + nom + "\n"
+      + "• Téléphone : " + tel + "\n"
+      + "• Catégorie : " + cat + "\n"
+      + "• Du : " + fmt(debut) + "\n"
+      + "• Au : " + fmt(fin) + "\n\nMerci de me confirmer la disponibilité.";
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+  });
+
+  /* Date min = today */
+  var today = new Date().toISOString().split("T")[0];
+  document.getElementById("f-debut").min = today;
+  document.getElementById("f-fin").min = today;
+  document.getElementById("f-debut").addEventListener("change", function(){
+    document.getElementById("f-fin").min = this.value || today;
+  });
+})();
+</script>
+</body>
+</html>
