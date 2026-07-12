@@ -23,6 +23,13 @@ For this build the `product` domain already recommends *Liquid Glass + Glassmorp
 and a *Black + Gold + minimal accent* palette for luxury e-commerce — useful when
 resuming the Home/Collections/Contact pages below.
 
+**Frontend Design** skill vendored at `.claude/skills/frontend-design/`
+(from https://github.com/anthropics/skills, Apache-2.0). Guidance-only (no
+scripts) — aesthetic direction, typography pairing, and avoiding templated
+defaults. Pairs with UI/UX Pro Max: use Pro Max to *look up* concrete styles,
+palettes, and fonts; use Frontend Design to make the *taste-level* calls (hero
+thesis, signature element, restraint) so the store doesn't read as generic.
+
 ## Design system (created in Framer ✅)
 
 ### Color styles
