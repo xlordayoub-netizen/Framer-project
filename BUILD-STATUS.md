@@ -5,6 +5,24 @@ Framer project: https://framer.com/projects/Lime-Happen--P2T5u8cmtymwNvonIpOP-ci
 **Status: PAUSED — Framer MCP connection dropped (project became read-only).
 Reconnect in Framer via Cmd+K → search "MCP", then resume.**
 
+## Design tooling (installed ✅)
+
+**UI/UX Pro Max** skill vendored at `.claude/skills/ui-ux-pro-max/`
+(from https://github.com/nextlevelbuilder/ui-ux-pro-max-skill, MIT). Searchable
+design-intelligence database — styles, 161 color palettes, font pairings,
+product-type reasoning, UX guidelines. Claude Code auto-loads it for UI work;
+query it directly with, e.g.:
+
+```
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py \
+  "luxury watch ecommerce dark elegant" --domain product --max-results 3
+```
+
+Domains: `style · color · chart · landing · product · ux · typography · icons · google-fonts`.
+For this build the `product` domain already recommends *Liquid Glass + Glassmorphism*
+and a *Black + Gold + minimal accent* palette for luxury e-commerce — useful when
+resuming the Home/Collections/Contact pages below.
+
 ## Design system (created in Framer ✅)
 
 ### Color styles
