@@ -1,5 +1,10 @@
 # Luxury E-commerce Framer Build — Status
 
+> **Note (2026-07):** this repo now also contains the **VELIRA** Next.js
+> e-commerce site at the repo root — see [README.md](README.md). The notes
+> below concern the earlier, separate Framer-canvas build and are kept for
+> reference.
+
 Framer project: https://framer.com/projects/Lime-Happen--P2T5u8cmtymwNvonIpOP-citsP
 
 **Status: PAUSED — Framer MCP connection dropped (project became read-only).

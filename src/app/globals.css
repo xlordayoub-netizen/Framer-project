@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps anchored sections (#acheter) clear of the sticky nav */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white font-sans text-base text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-ink text-white;
+  }
+
+  /* Visible keyboard focus everywhere, monochrome */
+  :focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 3px;
+  }
+
+  /* Arabic blocks: let the system pick a proper Arabic face after Inter */
+  [lang="ar"] {
+    font-family:
+      var(--font-inter),
+      "Noto Sans Arabic",
+      "Segoe UI",
+      Tahoma,
+      sans-serif;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
