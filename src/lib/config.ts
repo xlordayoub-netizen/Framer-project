@@ -1,11 +1,10 @@
 /**
  * Site-wide configuration.
  *
- * ⬇️ REPLACE THIS with the real WhatsApp number before going live.
+ * WhatsApp number that receives orders.
  * Format: country code + number, digits only — no "+", no spaces, no dashes.
- * Example for Morocco: "212612345678"
  */
-export const WHATSAPP_NUMBER = "212XXXXXXXXX";
+export const WHATSAPP_NUMBER = "212617753569";
 
 /** Displayed in the footer next to the WhatsApp link. */
 export const INSTAGRAM_HANDLE = "@velira.ma";
